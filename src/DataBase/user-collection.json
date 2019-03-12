@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Rahul",
+      "email": "",
+      "collections": [
+        {
+          "id": 1,
+          "name": "Reddit Api",
+          "urls": ["www.reddit.come", "www.reddit2.com"]
+        },
+        {
+          "id": 2,
+          "name": "Twitter Api",
+          "urls": ["www.twitter.come", "www.twitter2.com"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "Rahul",
+      "email": "",
+      "collections": [
+        {
+          "id": 3,
+          "name": "Reddit Api",
+          "urls": ["www.reddit.come", "www.reddit2.com"]
+        },
+        {
+          "id": 4,
+          "name": "Twitter Api",
+          "urls": ["www.twitter.come", "www.twitter2.com"]
+        }
+      ]
+    }
+  ]
+}

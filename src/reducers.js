@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux'
-import createHistory from 'history/createBrowserHistory'
 import { connectRouter } from 'connected-react-router'
 import { firebaseReducer } from 'react-redux-firebase'
+import UserAuthReducer from './redux/UserAuth/UserAuthReducer'
+import UserDbAuthReducer from './redux/UserAuth/UserDbAuthReducer'
 
-export const history = createHistory()
-
-export default combineReducers({
-  router: connectRouter(history),
-  firebase: firebaseReducer,
-})
+const rootReducer = history =>
+  combineReducers({
+    router: connectRouter(history),
+    firebase: firebaseReducer,
+    user: UserAuthReducer,
+    id: UserDbAuthReducer,
+  })
+export default rootReducer

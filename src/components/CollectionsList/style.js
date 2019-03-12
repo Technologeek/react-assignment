@@ -1,12 +1,10 @@
 import styled from 'styled-components'
 import globalStyle from '../../styles/base'
 
-const HomePageContainer = styled.div`
-  .image-container {
-  }
+const CollectionListWrapper = styled.div`
   ${globalStyle.flex};
-  ${globalStyle.row};
+  ${globalStyle.flexCenter};
   ${globalStyle.alignItemCenter};
 `
 
-export { HomePageContainer }
+export { CollectionListWrapper }

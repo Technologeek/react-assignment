@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import globalStyle from './base'
 
-export default () => createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
   *, :after, :before {
     background-repeat: no-repeat;
@@ -19,8 +19,8 @@ export default () => createGlobalStyle`
   }
   button {
     border-radius: 30px;
-    background-color: #027bb2;
-    color: ${globalStyle.white};
+    background-color: #fefefe;
+    color: ${globalStyle.red};
     font-size: 13px;
     padding: 10px 15px;
     min-width: 100px;

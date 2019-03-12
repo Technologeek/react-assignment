@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import globalStyle from '../../styles/base'
-import base from '../../styles/base'
+import background from '../../static/background.jpg'
 
 const HeaderContainer = styled.header`
-  background-image: linear-gradient(to top, #132b41, #041b31);
+  background-image: linear-gradient(to top, #ff662a, #da0039f2);
   color: #ffffff;
   ${globalStyle.flex};
   ${globalStyle.row};
@@ -13,6 +13,10 @@ const HeaderContainer = styled.header`
   @media (min-width: ${globalStyle.small}) {
     height: 79px;
   }
+  .fitimage {
+    width: 160px;
+  }
+
   .leftNav,
   .rightNav {
     ${globalStyle.flex};

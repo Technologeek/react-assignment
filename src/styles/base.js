@@ -44,9 +44,10 @@ export default {
   `,
   // Color
   black: css`#000000`,
+  red: css`#fc1333`,
   white: css`#ffffff`,
   red: css`red`,
-  darkBlue: `#091e31`,
+  orange: `#ff662a`,
   // View Port
   small: css`600px`,
 }
