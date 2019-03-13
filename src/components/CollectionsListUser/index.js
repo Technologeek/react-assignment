@@ -3,6 +3,7 @@ import { CollectionListWrapper } from './style'
 import { Container, Grid, Card, Icon, Image } from 'semantic-ui-react'
 import UrlAccordin from '../UrlAccordin'
 import NewCollectionModal from '../../containers/NewCollectionModal'
+import { Dropdown } from 'semantic-ui-react'
 import axios from 'axios'
 
 export default class CollectionsList extends Component {
@@ -14,23 +15,11 @@ export default class CollectionsList extends Component {
       urlList: [],
     }
   }
-  renderUserCollection() {
-    let urlItems = ''
-    this.props.collections &&
-      this.props.collections.map(collection => {
-        let collectionName = collection.name
-        let collectionDescription = collection.description
-        urlItems =
-          collection &&
-          collection.urls.map(url => {
-            return <li>{url}</li>
-          })
-      })
-    return urlItems
-  }
+
   render() {
-    let demo = this.renderUserCollection()
-    console.log(demo)
+    console.log(this.props)
+    let getAllCollections = this.props && this.props.getAllCollections
+    let userId = this.props && this.props.userId
     return (
       <CollectionListWrapper>
         <NewCollectionModal
@@ -45,15 +34,18 @@ export default class CollectionsList extends Component {
                   <Card.Content>
                     <Card.Header>Your Collections</Card.Header>
                   </Card.Content>
-                  {/* {this.renderUserCollection()} */}
                   {this.props &&
                     this.props.collections.map((collections, key) => {
                       console.log(collections)
                       return (
                         <UrlAccordin
-                          key={collections.id}
+                          id={collections.id}
                           title={collections.name}
                           description={collections.description}
+                          urlItem={collections.url}
+                          method={collections.method}
+                          getAllCollections={getAllCollections}
+                          userId={userId}
                         />
                       )
                     })}

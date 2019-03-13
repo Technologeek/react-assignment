@@ -12,10 +12,15 @@ class DashBoard extends Component {
     this.props.getAllUserCollections(id)
   }
   render() {
+    let id = this.props && this.props.userId
     return (
       <Fragment>
         <CollectionsList />
-        <CollectionsListUser collections={this.props.collection} />
+        <CollectionsListUser
+          collections={this.props.collection}
+          getAllCollections={this.props.getAllUserCollections.bind(this)}
+          userId={id}
+        />
       </Fragment>
     )
   }

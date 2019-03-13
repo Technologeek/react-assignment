@@ -5,9 +5,15 @@ import Loader from '../../components/Loader'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import history from '../../utils/history'
-import * as actions from '../../redux/UserAuth/actions'
+import * as actions from '../../redux/UserCollection/actions'
 import panda from '../../static/panda.png'
+import { Dropdown } from 'semantic-ui-react'
+import axios from 'axios'
 
+const dropDownOptions = [
+  { key: 1, text: 'GET', value: 1 },
+  { key: 2, text: 'POST', value: 2 },
+]
 class NewCollectionModal extends Component {
   constructor(props) {
     super(props)
@@ -17,10 +23,13 @@ class NewCollectionModal extends Component {
       url: '',
       collectionName: '',
       description: '',
+      method: '',
       errors: this.validations.errors,
     }
+    this.handler = this.handler.bind(this)
   }
 
+  handler() {}
   handleInputChange = event => {
     const { target } = event
     event.preventDefault()
@@ -43,6 +52,15 @@ class NewCollectionModal extends Component {
     })
   }
 
+  getDropDownValue = event => {
+    console.log('reached')
+    event.preventDefault()
+    event.stopPropagation()
+    this.setState({
+      method: event.target.textContent,
+    })
+  }
+
   handleFormSubmit = event => {
     event.preventDefault()
     event.stopPropagation()
@@ -56,15 +74,28 @@ class NewCollectionModal extends Component {
       errors: errors,
     })
     if (!this.validations.allNullKeyValue(errors)) return false
-
+    const { method } = this.state
     const dataTosend = {
-      url: url,
+      name: collectionName,
       description: description,
+      method: method,
+      url: url,
     }
-    //this.props.loginUser({ email, password })
+    let id = this.props && this.props.userId
+    let postUrl = `${
+      process.env.REACT_APP_JSON_BASE_URL
+    }users/${id}/collections`
+
+    axios.post(postUrl, dataTosend).then(response => {
+      console.log(response)
+      let id = this.props && this.props.userId
+      this.props.getAllUserCollections(id)
+    })
   }
   render() {
     const { url, description, errors } = this.state
+    const { method } = this.state
+    console.log(method)
     const backEndError = this.props.error
     return (
       <StrictMode>
@@ -107,20 +138,6 @@ class NewCollectionModal extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Url's comma seperated)"
-                    name="url"
-                    value={this.state.url}
-                    onChange={this.handleChange}
-                    onBlur={this.handleInputChange}
-                  />
-                  {errors && errors.url ? (
-                    <div className="err">{errors.url}</div>
-                  ) : null}
-                </div>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className="form-control"
                     placeholder="Description"
                     name="description"
                     value={this.state.description}
@@ -131,7 +148,28 @@ class NewCollectionModal extends Component {
                     <div className="err">{errors.description}</div>
                   ) : null}
                 </div>
-
+                <div className="form-group">
+                  <Dropdown
+                    clearable
+                    options={dropDownOptions}
+                    selection
+                    onChange={this.getDropDownValue}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Url"
+                    name="url"
+                    value={this.state.url}
+                    onChange={this.handleChange}
+                    onBlur={this.handleInputChange}
+                  />
+                  {errors && errors.url ? (
+                    <div className="err">{errors.url}</div>
+                  ) : null}
+                </div>
                 <button type="button" onClick={this.handleFormSubmit}>
                   {this.props.spinner ? (
                     <Loader />

@@ -5,6 +5,7 @@ import ModalLogin from '../../containers/ModalLogin'
 import { HeaderContainer } from './style'
 import { connect } from 'react-redux'
 import logo from '../../static/logo.png'
+import history from '../../utils/history'
 
 class Header extends Component {
   constructor(props) {
@@ -34,6 +35,9 @@ class Header extends Component {
     this.setState({
       showLoginModal: false,
     })
+  }
+  redirect = () => {
+    history.push('/not')
   }
   render() {
     const isLoggedIn = Object.keys(this.props.user).length !== 0
@@ -66,9 +70,7 @@ class Header extends Component {
               <div>
                 {isLoggedIn ? (
                   <div>
-                    <button onClick={this.handleSignupOpenModal}>
-                      Profile
-                    </button>
+                    <button onClick={this.redirect}>Profile</button>
                     <button onClick={this.handleLoginOpenModal}>Logout</button>
                   </div>
                 ) : (
