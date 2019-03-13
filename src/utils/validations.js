@@ -10,10 +10,13 @@ class Validations {
       password: null,
       confirmpassword: null,
       email: null,
+      url: null,
+      description: null,
+      collectionName: null,
     }
   }
   validate(fieldName, fieldValue) {
-    if (!fieldValue.trim().length && fieldName !== 'email') {
+    if (!fieldValue.trim().length) {
       this.errors[fieldName] = 'This field is required and can not be blank'
       return this.errors
     }
@@ -56,7 +59,17 @@ class Validations {
         break
       case 'email':
         if (fieldValue !== '' && !isEmail(fieldValue)) {
-          this.errors[fieldName] = 'Enter a valid email address (optional)'
+          this.errors[fieldName] = 'Enter a valid email address'
+        } else {
+          this.errors[fieldName] = null
+        }
+        break
+      case 'url':
+        if (
+          fieldValue !== '' &&
+          !(fieldValue.startsWith('https') || fieldValue.startsWith('http'))
+        ) {
+          this.errors[fieldName] = 'Url must begin with Http or Https'
         } else {
           this.errors[fieldName] = null
         }

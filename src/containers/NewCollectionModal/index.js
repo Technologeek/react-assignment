@@ -8,14 +8,15 @@ import history from '../../utils/history'
 import * as actions from '../../redux/UserAuth/actions'
 import panda from '../../static/panda.png'
 
-class ModalLogin extends Component {
+class NewCollectionModal extends Component {
   constructor(props) {
     super(props)
     this.validations = new Validations()
     this.state = {
-      fields: ['email', 'password'],
-      email: '',
-      password: '',
+      fields: ['url', 'description', 'collectionName'],
+      url: '',
+      collectionName: '',
+      description: '',
       errors: this.validations.errors,
     }
   }
@@ -45,7 +46,7 @@ class ModalLogin extends Component {
   handleFormSubmit = event => {
     event.preventDefault()
     event.stopPropagation()
-    const { email, password } = this.state
+    const { url, description, collectionName } = this.state
     let errors = null
     this.state.fields.forEach(field => {
       let fieldValue = this.state[field]
@@ -57,20 +58,13 @@ class ModalLogin extends Component {
     if (!this.validations.allNullKeyValue(errors)) return false
 
     const dataTosend = {
-      email: email,
-      password: password,
+      url: url,
+      description: description,
     }
-    this.props.loginUser({ email, password })
-    this.props.loginNewUserDatabse(email)
+    //this.props.loginUser({ email, password })
   }
   render() {
-    console.log(this.props)
-    if (Object.keys(this.props.user).length !== 0) {
-      history.push('/Dashboard')
-      this.props.onClick()
-    }
-
-    const { errors, passwordError } = this.state
+    const { url, description, errors } = this.state
     const backEndError = this.props.error
     return (
       <StrictMode>
@@ -85,7 +79,7 @@ class ModalLogin extends Component {
               <img className="logo-heading__nine" src={panda} alt="" />
               <span />
             </div>
-            <h3>Login</h3>
+            <h3>New Collection</h3>
             <div className="modal-register__form">
               {backEndError ? (
                 <ul className="err-message">
@@ -97,35 +91,53 @@ class ModalLogin extends Component {
               <div className="input-field">
                 <div className="form-group">
                   <input
-                    type="email"
+                    type="text"
                     className="form-control"
-                    placeholder="Email (Optional)"
-                    name="email"
-                    value={this.state.email || ''}
+                    placeholder="Collection Name"
+                    name="collectionName"
+                    value={this.state.collectionName}
                     onChange={this.handleChange}
                     onBlur={this.handleInputChange}
                   />
-                  {errors && errors.email ? (
-                    <div className="err">{errors.email}</div>
+                  {errors && errors.collectionName ? (
+                    <div className="err">{errors.collectionName}</div>
                   ) : null}
                 </div>
                 <div className="form-group">
                   <input
-                    type="password"
+                    type="text"
                     className="form-control"
-                    placeholder="Password"
-                    name="password"
-                    value={this.state.password || ''}
+                    placeholder="Url's comma seperated)"
+                    name="url"
+                    value={this.state.url}
                     onChange={this.handleChange}
                     onBlur={this.handleInputChange}
                   />
-                  {errors && errors.password ? (
-                    <div className="err">{errors.password}</div>
+                  {errors && errors.url ? (
+                    <div className="err">{errors.url}</div>
+                  ) : null}
+                </div>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Description"
+                    name="description"
+                    value={this.state.description}
+                    onChange={this.handleChange}
+                    onBlur={this.handleInputChange}
+                  />
+                  {errors && errors.description ? (
+                    <div className="err">{errors.description}</div>
                   ) : null}
                 </div>
 
                 <button type="button" onClick={this.handleFormSubmit}>
-                  {this.props.spinner ? <Loader /> : <span>Login</span>}
+                  {this.props.spinner ? (
+                    <Loader />
+                  ) : (
+                    <span>Create Collection</span>
+                  )}
                 </button>
               </div>
             </div>
@@ -140,11 +152,11 @@ class ModalLogin extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    router: state.router,
+    userId: state.id,
   }
 }
 export default connect(
   mapStateToProps,
   actions,
   null
-)(ModalLogin)
+)(NewCollectionModal)

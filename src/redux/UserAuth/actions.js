@@ -2,6 +2,7 @@ import {
   USER_LOGGEDIN,
   REGISTER_NEW_USER,
   REGISTER_NEW_USER_DATABSE,
+  LOGIN_NEW_USER_DATABSE,
 } from './constants'
 import firebase from 'firebase/app'
 import axios from 'axios'
@@ -85,6 +86,38 @@ export function registerNewUserDatabse(userData) {
           type: REGISTER_NEW_USER_DATABSE,
           payload: response.data.id,
         })
+        //dispatch(resetErrors());
+      })
+      .catch(error => {
+        // dispatch(showLoadingIcon());
+        const errorMessage = 'Something went wrong.Please try again.'
+        // const errorObjectWithMessage = {
+        //   ...error,
+        //   errorMessage: error.response.data.error
+        //     ? error.response.data
+        //     : {
+        //         error: [errorMessage],
+        //       },
+        // };
+        // dispatch(showBackendError(errorObjectWithMessage.errorMessage));
+      })
+  }
+}
+
+export function loginNewUserDatabse(email) {
+  const url = `${process.env.REACT_APP_JSON_BASE_URL}users?email_like=${email}`
+  return (dispatch, getState) => {
+    //console.log(dispatch, getState, api, setAuthorizationToken);
+    //dispatch(showLoadingIcon());
+    return axios
+      .get(url)
+      .then(response => {
+        if (response.data)
+          //dispatch(showLoadingIcon());
+          dispatch({
+            type: LOGIN_NEW_USER_DATABSE,
+            payload: response.data[0].id,
+          })
         //dispatch(resetErrors());
       })
       .catch(error => {

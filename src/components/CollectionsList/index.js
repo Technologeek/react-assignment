@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { CollectionListWrapper } from './style'
 import { Container, Grid, Card, Icon, Image } from 'semantic-ui-react'
 import UrlAccordin from '../UrlAccordin'
+import NewCollectionModal from '../../containers/NewCollectionModal'
+import Quotes from '../Hooks/Quotes'
 import axios from 'axios'
 
 export default class CollectionsList extends Component {
@@ -9,7 +11,18 @@ export default class CollectionsList extends Component {
     super(props)
     this.state = {
       defaltCollection: [],
+      showModal: false,
     }
+  }
+  handleSignupOpenModal = () => {
+    this.setState({
+      showModal: true,
+    })
+  }
+  handleSignupModalClose = () => {
+    this.setState({
+      showModal: false,
+    })
   }
   componentDidMount() {
     let url = 'https://api.myjson.com/bins/z601u'
@@ -22,7 +35,6 @@ export default class CollectionsList extends Component {
   renderDefaultCollection() {
     let renderList = ''
     const { defaltCollection } = this.state
-    console.log(defaltCollection)
     defaltCollection &&
       defaltCollection.map(collection => {
         let collectionName = collection.name
@@ -46,6 +58,10 @@ export default class CollectionsList extends Component {
     const { defaltCollection } = this.state
     return (
       <CollectionListWrapper>
+        <NewCollectionModal
+          show={this.state.showModal}
+          onClick={this.handleSignupModalClose}
+        />
         <Container>
           <Grid celled>
             <Grid.Row>
@@ -59,7 +75,7 @@ export default class CollectionsList extends Component {
                     <Card.Description>
                       All your collections appear here
                     </Card.Description>
-                    <a>
+                    <a onClick={this.handleSignupOpenModal}>
                       <Icon name="folder open" />
                       Create New
                     </a>
@@ -68,7 +84,9 @@ export default class CollectionsList extends Component {
                   <Card.Content extra />
                 </Card>
               </Grid.Column>
-              <Grid.Column width={11} />
+              <Grid.Column width={11}>
+                <Quotes />
+              </Grid.Column>
             </Grid.Row>
           </Grid>
         </Container>

@@ -1,0 +1,8 @@
+.content_custom {
+  max-height: 40vh !important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+}
+.custom_width {
+  width: 100% !important;
+}
