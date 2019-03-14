@@ -1,8 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import CollectionsList from '../../components/CollectionsList'
 import CollectionsListUser from '../../components/CollectionsListUser'
+import Quotes from '../../components/Hooks/Quotes'
+import ApiDisplay from '../../components/ApiDisplay'
 import * as actions from '../../redux/UserCollection/actions'
 import { connect } from 'react-redux'
+import { Container, Grid, Card, Icon, Image } from 'semantic-ui-react'
+import './style.css'
 
 class DashBoard extends Component {
   componentDidMount() {
@@ -15,12 +19,26 @@ class DashBoard extends Component {
     let id = this.props && this.props.userId
     return (
       <Fragment>
-        <CollectionsList />
-        <CollectionsListUser
-          collections={this.props.collection}
-          getAllCollections={this.props.getAllUserCollections.bind(this)}
-          userId={id}
-        />
+        <Container className="custom_width">
+          <Grid celled>
+            <Grid.Row>
+              <Grid.Column width={5}>
+                <CollectionsList />
+                <CollectionsListUser
+                  collections={this.props.collection}
+                  getAllCollections={this.props.getAllUserCollections.bind(
+                    this
+                  )}
+                  userId={id}
+                />
+              </Grid.Column>
+              <Grid.Column width={11}>
+                <Quotes />
+                <ApiDisplay />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
       </Fragment>
     )
   }

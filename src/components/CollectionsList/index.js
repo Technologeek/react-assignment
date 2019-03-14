@@ -62,34 +62,24 @@ export default class CollectionsList extends Component {
           show={this.state.showModal}
           onClick={this.handleSignupModalClose}
         />
-        <Container>
-          <Grid celled>
-            <Grid.Row>
-              <Grid.Column width={5}>
-                <Card>
-                  <Card.Content>
-                    <Card.Header>Your Collections</Card.Header>
-                    <Card.Meta>
-                      <span className="date">Joined in 2015</span>
-                    </Card.Meta>
-                    <Card.Description>
-                      All your collections appear here
-                    </Card.Description>
-                    <a onClick={this.handleSignupOpenModal}>
-                      <Icon name="folder open" />
-                      Create New
-                    </a>
-                  </Card.Content>
-                  {this.renderDefaultCollection()}
-                  <Card.Content extra />
-                </Card>
-              </Grid.Column>
-              <Grid.Column width={11}>
-                <Quotes />
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Container>
+
+        <Card>
+          <Card.Content>
+            <Card.Header>Your Collections</Card.Header>
+            <Card.Meta>
+              <span className="date">Joined in 2015</span>
+            </Card.Meta>
+            <Card.Description>
+              All your collections appear here
+            </Card.Description>
+            <a onClick={this.handleSignupOpenModal}>
+              <Icon name="folder open" />
+              Create New
+            </a>
+          </Card.Content>
+          {this.renderDefaultCollection()}
+          <Card.Content extra />
+        </Card>
       </CollectionListWrapper>
     )
   }

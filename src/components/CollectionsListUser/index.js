@@ -26,36 +26,27 @@ export default class CollectionsList extends Component {
           show={this.state.showModal}
           onClick={this.handleSignupModalClose}
         />
-        <Container>
-          <Grid celled>
-            <Grid.Row>
-              <Grid.Column width={5}>
-                <Card>
-                  <Card.Content>
-                    <Card.Header>Your Collections</Card.Header>
-                  </Card.Content>
-                  {this.props &&
-                    this.props.collections.map((collections, key) => {
-                      console.log(collections)
-                      return (
-                        <UrlAccordin
-                          id={collections.id}
-                          title={collections.name}
-                          description={collections.description}
-                          urlItem={collections.url}
-                          method={collections.method}
-                          getAllCollections={getAllCollections}
-                          userId={userId}
-                        />
-                      )
-                    })}
-                  <Card.Content extra />
-                </Card>
-              </Grid.Column>
-              <Grid.Column width={11} />
-            </Grid.Row>
-          </Grid>
-        </Container>
+        <Card>
+          <Card.Content>
+            <Card.Header>Your Collections</Card.Header>
+          </Card.Content>
+          {this.props &&
+            this.props.collections.map((collections, key) => {
+              console.log(collections)
+              return (
+                <UrlAccordin
+                  id={collections.id}
+                  title={collections.name}
+                  description={collections.description}
+                  urlItem={collections.url}
+                  method={collections.method}
+                  getAllCollections={getAllCollections}
+                  userId={userId}
+                />
+              )
+            })}
+          <Card.Content extra />
+        </Card>
       </CollectionListWrapper>
     )
   }

@@ -4,6 +4,7 @@ import { Label } from 'semantic-ui-react'
 import axios from 'axios'
 import './style.css'
 import UpdateCollectionModal from '../UpdateCollectionModal'
+import ReactTooltip from 'react-tooltip'
 
 export default class UrlAccordin extends Component {
   constructor(props) {
@@ -69,8 +70,24 @@ export default class UrlAccordin extends Component {
               <span className="customIcon">
                 {this.props.title === 'Default Collection' ? null : (
                   <Fragment>
-                    <Icon name="delete" onClick={this.deleteCollection} />
-                    <Icon name="content" onClick={this.handleSignupOpenModal} />
+                    <Icon
+                      data-tip
+                      data-for="deleteIcon"
+                      name="delete"
+                      onClick={this.deleteCollection}
+                    />
+                    <ReactTooltip id="deleteIcon" type="error">
+                      <span>Delete Collection?</span>
+                    </ReactTooltip>
+                    <Icon
+                      data-tip
+                      data-for="updateIcon"
+                      name="content"
+                      onClick={this.handleSignupOpenModal}
+                    />
+                    <ReactTooltip id="updateIcon" type="warning">
+                      <span>Update Collection?</span>
+                    </ReactTooltip>
                   </Fragment>
                 )}
               </span>
