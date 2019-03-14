@@ -8,6 +8,7 @@ import HomePage from '../../containers/HomePage'
 import DashBoard from '../../containers/Dashboard'
 import history from '../../utils/history'
 import RouteNotFound from '../../components/RouteNotFound'
+import ProfilePage from '../../containers/ProfilePage'
 import 'semantic-ui-css/semantic.min.css'
 
 import { GlobalStyle } from '../../styles/global-styles'
@@ -23,6 +24,7 @@ export default function App() {
             <Route exact path="/Signup" component={ModalRegister} />
             <Route exact path="/Login" component={ModalLogin} />
             <Route exact path="/Dashboard" component={DashBoard} />
+            <Route exact path="/Profile" component={ProfilePage} />
             <Route component={RouteNotFound} />
           </Switch>
           <Footer />

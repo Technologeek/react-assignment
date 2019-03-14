@@ -15,37 +15,27 @@ const useAxios = url => {
         console.log(error)
       })
   }, [])
-
   return data
 }
 
 const Quotes = () => {
-  const URL = 'http://quotes.stormconsultancy.co.uk/popular.json'
+  const URL = 'http://quotes.stormconsultancy.co.uk/random.json'
   let quote = ''
   let author = ''
   const result = useAxios(URL)
-  result &&
-    result.map(data => {
-      quote = data.quote
-      author = data.author
-    })
-
+  author = result && result.author
+  quote = result && result.quote
   return (
     <Container>
       <Card className="custom_width">
         <Card.Content className="content_custom ">
           <Card.Header>Some Quotes Funny</Card.Header>
-          {result &&
-            result.map(data => {
-              return (
-                <Fragment>
-                  <Card.Meta>
-                    <span className="date">{data.author}</span>
-                  </Card.Meta>
-                  <Card.Description>{data.quote}</Card.Description>
-                </Fragment>
-              )
-            })}
+          <Fragment>
+            <Card.Meta>
+              <span className="date">{author}</span>
+            </Card.Meta>
+            <Card.Description>{quote}</Card.Description>
+          </Fragment>
         </Card.Content>
         <Card.Content extra />
       </Card>

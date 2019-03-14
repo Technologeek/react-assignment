@@ -70,7 +70,13 @@ class Header extends Component {
               <div>
                 {isLoggedIn ? (
                   <div>
-                    <button onClick={this.redirect}>Profile</button>
+                    <button
+                      onClick={() => {
+                        history.push('/Profile')
+                      }}
+                    >
+                      Profile
+                    </button>
                     <button onClick={this.handleLoginOpenModal}>Logout</button>
                   </div>
                 ) : (
