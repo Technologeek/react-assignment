@@ -19,6 +19,7 @@ export default class CollectionsList extends Component {
   render() {
     console.log(this.props)
     let getAllCollections = this.props && this.props.getAllCollections
+    let getUrlDataForResponse = this.props && this.props.getUrlDataForResponse
     let userId = this.props && this.props.userId
     return (
       <CollectionListWrapper>
@@ -41,6 +42,7 @@ export default class CollectionsList extends Component {
                   urlItem={collections.url}
                   method={collections.method}
                   getAllCollections={getAllCollections}
+                  getUrlDataForResponse={getUrlDataForResponse}
                   userId={userId}
                 />
               )

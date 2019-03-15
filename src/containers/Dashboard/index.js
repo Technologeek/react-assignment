@@ -4,6 +4,7 @@ import CollectionsListUser from '../../components/CollectionsListUser'
 import Quotes from '../../components/Hooks/Quotes'
 import ApiDisplay from '../../components/ApiDisplay'
 import * as actions from '../../redux/UserCollection/actions'
+import * as urlactions from '../../redux/ResponseUrl/actions'
 import { connect } from 'react-redux'
 import { Container, Grid, Card, Icon, Image } from 'semantic-ui-react'
 import './style.css'
@@ -27,6 +28,9 @@ class DashBoard extends Component {
                 <CollectionsListUser
                   collections={this.props.collection}
                   getAllCollections={this.props.getAllUserCollections.bind(
+                    this
+                  )}
+                  getUrlDataForResponse={this.props.getUrlDataForResponse.bind(
                     this
                   )}
                   userId={id}

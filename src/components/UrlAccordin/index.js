@@ -39,7 +39,13 @@ export default class UrlAccordin extends Component {
       this.props.getAllCollections(this.props.userId)
     })
   }
-
+  handleUrlClick = () => {
+    let urlDataToSend = {
+      url: this.props.urlItem,
+      method: this.props.method,
+    }
+    this.props.getUrlDataForResponse(urlDataToSend)
+  }
   render() {
     const { activeIndex } = this.state
     console.log(this.props)
@@ -94,7 +100,7 @@ export default class UrlAccordin extends Component {
             </p>
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 0}>
-            <p>{this.props.urlItem}</p>
+            <p onClick={this.handleUrlClick}>{this.props.urlItem}</p>
             <Label>
               <Icon name="mail" /> {this.props.method}
             </Label>

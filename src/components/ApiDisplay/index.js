@@ -3,12 +3,14 @@ import { Input, Segment, Dropdown, Button } from 'semantic-ui-react'
 import axios from 'axios'
 import JSONPretty from 'react-json-pretty'
 import JSONPrettyMon from 'react-json-pretty/themes/monikai.css'
+import { connect } from 'react-redux'
+import * as actions from '../../redux/ResponseUrl/actions'
 
 const dropDownOptions = [
   { key: 1, text: 'GET', value: 1 },
   { key: 2, text: 'POST', value: 2 },
 ]
-export default class ApiDisplay extends Component {
+class ApiDisplay extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -23,6 +25,13 @@ export default class ApiDisplay extends Component {
       postResponseData: '',
       postResponseError: '',
       errors: '',
+    }
+  }
+  componentDidMount() {
+    if (this.props && this.props.urldata) {
+      this.setState({
+        url: this.props.urldata.url,
+      })
     }
   }
   handleInputChange = event => {
@@ -103,7 +112,7 @@ export default class ApiDisplay extends Component {
 
   render() {
     const { errors } = this.state
-    console.log(this.state.getResponseData, this.state.postResponseData)
+    console.log(this.props)
     const {
       method,
       url,
@@ -155,7 +164,7 @@ export default class ApiDisplay extends Component {
         />
         <Input
           name="contentType"
-          placeholder="Value..."
+          placeholder="Content Type..."
           value={this.state.contentType}
           onChange={this.handleChange}
           onBlur={this.handleInputChange}
@@ -201,3 +210,14 @@ export default class ApiDisplay extends Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    urldata: state.urldata,
+  }
+}
+export default connect(
+  mapStateToProps,
+  actions,
+  null
+)(ApiDisplay)
