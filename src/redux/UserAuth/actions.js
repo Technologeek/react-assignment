@@ -3,8 +3,11 @@ import {
   REGISTER_NEW_USER,
   REGISTER_NEW_USER_DATABSE,
   LOGIN_NEW_USER_DATABSE,
+  LOGOUT_USER,
 } from './constants'
 import firebase from 'firebase/app'
+import { persistStore } from 'redux-persist'
+
 import axios from 'axios'
 export function loginUser({ email, password }) {
   return (dispatch, getState) => {
@@ -132,6 +135,35 @@ export function loginNewUserDatabse(email) {
         //       },
         // };
         // dispatch(showBackendError(errorObjectWithMessage.errorMessage));
+      })
+  }
+}
+
+export function logoutUser() {
+  return (dispatch, getState) => {
+    firebase
+      .auth()
+      .signOut()
+      .then(response => {
+        dispatch({
+          type: LOGOUT_USER,
+          payload: response,
+        })
+        console.log(response.user)
+        //dispatch(resetErrors())
+      })
+      .catch(error => {
+        //dispatch(showLoadingIcon())
+        const errorMessage = 'Something went wrong.Please try again.'
+        // const errorObjectWithMessage = {
+        //   ...error,
+        //   errorMessage: error.response.data.error
+        //     ? error.response.data
+        //     : {
+        //         error: [errorMessage],
+        //       },
+        // }
+        //dispatch(showBackendError(errorObjectWithMessage.errorMessage))
       })
   }
 }

@@ -12,6 +12,7 @@ export const history = createBrowserHistory()
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['urldata', 'collection'],
 }
 const persistedReducer = persistReducer(
   persistConfig,

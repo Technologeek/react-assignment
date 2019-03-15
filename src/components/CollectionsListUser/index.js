@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { CollectionListWrapper } from './style'
 import { Container, Grid, Card, Icon, Image } from 'semantic-ui-react'
 import UrlAccordin from '../UrlAccordin'
 import NewCollectionModal from '../../containers/NewCollectionModal'
 import { Dropdown } from 'semantic-ui-react'
+import emptylist from '../../static/emptylist.png'
 import axios from 'axios'
 
 export default class CollectionsList extends Component {
@@ -31,22 +32,31 @@ export default class CollectionsList extends Component {
           <Card.Content>
             <Card.Header>Your Collections</Card.Header>
           </Card.Content>
-          {this.props &&
-            this.props.collections.map((collections, key) => {
-              console.log(collections)
-              return (
-                <UrlAccordin
-                  id={collections.id}
-                  title={collections.name}
-                  description={collections.description}
-                  urlItem={collections.url}
-                  method={collections.method}
-                  getAllCollections={getAllCollections}
-                  getUrlDataForResponse={getUrlDataForResponse}
-                  userId={userId}
-                />
-              )
-            })}
+          {Object.keys(this.props.collections).length === 0 ? (
+            <div>
+              <img src={emptylist} className="custom_width" />
+              <p>Panda Couldn't Find Any Collections</p>
+            </div>
+          ) : (
+            <Fragment>
+              {this.props.collections.map((collections, key) => {
+                console.log(collections)
+                return (
+                  <UrlAccordin
+                    id={collections.id}
+                    title={collections.name}
+                    description={collections.description}
+                    urlItem={collections.url}
+                    method={collections.method}
+                    getAllCollections={getAllCollections}
+                    getUrlDataForResponse={getUrlDataForResponse}
+                    userId={userId}
+                  />
+                )
+              })}
+            </Fragment>
+          )}
+
           <Card.Content extra />
         </Card>
       </CollectionListWrapper>

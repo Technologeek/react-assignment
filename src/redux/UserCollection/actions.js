@@ -1,4 +1,8 @@
-import { DEFAUL_ACTION, ALL_USER_COLLECTIONS } from './constants'
+import {
+  DEFAUL_ACTION,
+  ALL_USER_COLLECTIONS,
+  GET_RESPONSE_URL_DATA,
+} from './constants'
 import axios from 'axios'
 
 export function getAllUserCollections(id) {
@@ -14,6 +18,16 @@ export function getAllUserCollections(id) {
       })
       .catch(error => {
         const errorMessage = 'Something went wrong.Please try again.'
+      })
+  }
+}
+
+export function getUrlDataForResponse(urlData) {
+  return (dispatch, getState) => {
+    if (urlData)
+      dispatch({
+        type: GET_RESPONSE_URL_DATA,
+        payload: urlData,
       })
   }
 }

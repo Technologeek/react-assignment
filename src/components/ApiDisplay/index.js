@@ -26,16 +26,22 @@ class ApiDisplay extends Component {
       postResponseError: '',
       errors: '',
     }
+    this.input = React.createRef()
   }
-  componentDidMount() {
-    if (this.props && this.props.urldata) {
-      this.setState({
-        url: this.props.urldata.url,
-      })
+
+  static getDerivedStateFromProps(props, currentState) {
+    if (currentState.url !== props.urldata) {
+      return {
+        url: props.urldata.url,
+      }
     }
+    // Return null to indicate no change to state.
+    return null
   }
+
   handleInputChange = event => {
     const { target } = event
+    console.log(event)
     event.preventDefault()
     event.stopPropagation()
     this.setState({
@@ -45,6 +51,7 @@ class ApiDisplay extends Component {
 
   handleChange = event => {
     const { currentTarget } = event
+    console.log(event)
     event.preventDefault()
     event.stopPropagation()
     this.setState({
@@ -62,9 +69,11 @@ class ApiDisplay extends Component {
   }
 
   handleFormSubmit = event => {
+    console.log(this.input)
+    const { method, key, value, body, contentType } = this.state
+    let url = this.input.current.value
     event.preventDefault()
     event.stopPropagation()
-    const { url, method, key, value, body, contentType } = this.state
     let dynamicKey = this.state.key
     if (method === 'GET') {
       axios
@@ -136,9 +145,10 @@ class ApiDisplay extends Component {
           label={{ icon: 'asterisk' }}
           labelPosition="right corner"
           placeholder="Search..."
-          value={this.state.url}
-          onChange={this.handleInputChange}
-          onBlur={this.handleInputChange}
+          defaultValue={this.state.url}
+          ref={this.input}
+          // onChange={this.handleInputChange}
+          // onBlur={this.handleInputChange}
         />
         <span>Method: </span>
         <Dropdown

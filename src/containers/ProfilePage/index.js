@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import UIAvatar from 'react-ui-avatars'
 import { Card, Icon, Image } from 'semantic-ui-react'
+import history from '../../utils/history'
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class ProfilePage extends Component {
       userEmail: '',
     }
   }
-  componentDidMount() {
+  componentDidMount(match) {
     let url = `${process.env.REACT_APP_JSON_BASE_URL}users/${this.props.userId}`
     axios.get(url).then(response => {
       if (response.data)
@@ -24,7 +25,11 @@ class ProfilePage extends Component {
     })
   }
   render() {
-    console.log(this.props.userId)
+    const isLoggedIn = Object.keys(this.props.user).length !== 0
+    if (!isLoggedIn) {
+      history.push('/')
+    }
+    console.log(this.props)
     const { userName, userEmail } = this.state
     return (
       <Grid columns={1} divided>
@@ -62,6 +67,7 @@ class ProfilePage extends Component {
 
 const mapStateToProps = state => {
   return {
+    user: state.user,
     userId: state.id,
   }
 }

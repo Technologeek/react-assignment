@@ -4,9 +4,10 @@ import CollectionsListUser from '../../components/CollectionsListUser'
 import Quotes from '../../components/Hooks/Quotes'
 import ApiDisplay from '../../components/ApiDisplay'
 import * as actions from '../../redux/UserCollection/actions'
-import * as urlactions from '../../redux/ResponseUrl/actions'
 import { connect } from 'react-redux'
 import { Container, Grid, Card, Icon, Image } from 'semantic-ui-react'
+import history from '../../utils/history'
+
 import './style.css'
 
 class DashBoard extends Component {
@@ -14,9 +15,15 @@ class DashBoard extends Component {
     console.log(this.props)
     let id = this.props && this.props.userId
     console.log(id)
-    this.props.getAllUserCollections(id)
+    if (this.props && this.props.userId) {
+      this.props.getAllUserCollections(id)
+    }
   }
   render() {
+    const isLoggedIn = Object.keys(this.props.user).length !== 0
+    if (!isLoggedIn) {
+      history.push('/')
+    }
     let id = this.props && this.props.userId
     return (
       <Fragment>

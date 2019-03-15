@@ -24,7 +24,10 @@ export default function App() {
             <Route exact path="/Signup" component={ModalRegister} />
             <Route exact path="/Login" component={ModalLogin} />
             <Route exact path="/Dashboard" component={DashBoard} />
-            <Route exact path="/Profile" component={ProfilePage} />
+            <Route
+              path="/:userId/Profile"
+              render={props => <ProfilePage {...props} />}
+            />
             <Route component={RouteNotFound} />
           </Switch>
           <Footer />

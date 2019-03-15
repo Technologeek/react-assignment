@@ -4,7 +4,7 @@ import { firebaseReducer } from 'react-redux-firebase'
 import UserAuthReducer from './redux/UserAuth/UserAuthReducer'
 import UserDbAuthReducer from './redux/UserAuth/UserDbAuthReducer'
 import UserCollectionReducer from './redux/UserCollection/UserCollectionReducer'
-import ResponseUrlReducer from './redux/ResponseUrl/ResponseUrlReducer'
+import ResponseUrlReducer from './redux/UserCollection/ResponseUrlReducer'
 const rootReducer = history =>
   combineReducers({
     router: connectRouter(history),

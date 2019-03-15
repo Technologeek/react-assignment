@@ -6,6 +6,8 @@ import { HeaderContainer } from './style'
 import { connect } from 'react-redux'
 import logo from '../../static/logo.png'
 import history from '../../utils/history'
+import * as actions from '../../redux/UserAuth/actions'
+import { persistStore } from 'redux-persist'
 
 class Header extends Component {
   constructor(props) {
@@ -39,8 +41,13 @@ class Header extends Component {
   redirect = () => {
     history.push('/not')
   }
+
   render() {
+    let userId = this.props && this.props.userId
     const isLoggedIn = Object.keys(this.props.user).length !== 0
+    if (!isLoggedIn) {
+      history.push('/')
+    }
     return (
       <HeaderContainer>
         <ModalRegister
@@ -72,12 +79,12 @@ class Header extends Component {
                   <div>
                     <button
                       onClick={() => {
-                        history.push('/Profile')
+                        history.push(`${userId}/Profile`)
                       }}
                     >
                       Profile
                     </button>
-                    <button onClick={this.handleLoginOpenModal}>Logout</button>
+                    <button onClick={this.props.logoutUser}>Logout</button>
                   </div>
                 ) : (
                   <div>
@@ -99,9 +106,11 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     router: state.router,
+    userId: state.id,
   }
 }
 export default connect(
   mapStateToProps,
+  actions,
   null
 )(Header)
