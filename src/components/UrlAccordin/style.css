@@ -2,3 +2,31 @@
   margin-left: 70px;
   color: red;
 }
+.custom_accordin {
+  padding: 10px;
+}
+.custom_accordin:hover {
+  background-color: #ff50061a;
+}
+.custom_color_title {
+  color: #e91e63 !important;
+}
+.custom_icon_color {
+  color: #fa0e36 !important;
+}
+.custom_icon_color_2 {
+  color: #ff5101 !important;
+}
+.custom_description {
+  font-style: italic !important;
+  color: #6f6a6a !important;
+}
+.url_item {
+  font-family: monospace !important;
+  margin-left: 0px;
+  border-bottom: 1px solid #c3c1c3;
+  color: #ff0029;
+}
+.method_item {
+  color: #009688 !important;
+}

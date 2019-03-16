@@ -82,13 +82,16 @@ export default class UpdateCollectionModal extends Component {
     })
     if (!this.validations.allNullKeyValue(errors)) return false
     const { method } = this.state
+    let userIdToSend = this.props && this.props.userId
     const dataTosend = {
       name: collectionName,
       description: description,
       method: method,
       url: url,
+      userId: userIdToSend,
     }
     let collectionID = this.props && this.props.collectionId
+    console.log(collectionID)
     let updateUrl = `${
       process.env.REACT_APP_JSON_BASE_URL
     }collections/${collectionID}`
@@ -100,6 +103,7 @@ export default class UpdateCollectionModal extends Component {
     })
   }
   render() {
+    console.log(this.props && this.props.collectionId)
     const { url, description, errors } = this.state
     const { method } = this.state
     console.log(this.props)

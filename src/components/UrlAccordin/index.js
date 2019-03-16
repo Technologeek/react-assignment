@@ -62,17 +62,19 @@ export default class UrlAccordin extends Component {
           collectionId={this.props.id}
           getAllUserCollections={this.props.getAllCollections}
         />
-        <Accordion>
+        <Accordion className="custom_accordin">
           <Accordion.Title
             active={activeIndex === 0}
             index={0}
             onClick={this.handleClick}
           >
-            <Icon name="envelope" />
-            {this.props.title}
+            <Icon name="hotjar" className="custom_icon_color" />
+            <span className="custom_color_title">{this.props.title}</span>
             <p>
-              <Icon name="at" />
-              {this.props.description}
+              <Icon name="unordered list" className="custom_icon_color_2" />
+              <span className="custom_description">
+                {this.props.description}
+              </span>
               <span className="customIcon">
                 {this.props.title === 'Default Collection' ? null : (
                   <Fragment>
@@ -100,8 +102,10 @@ export default class UrlAccordin extends Component {
             </p>
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 0}>
-            <p onClick={this.handleUrlClick}>{this.props.urlItem}</p>
-            <Label>
+            <p onClick={this.handleUrlClick}>
+              <span className="url_item">{this.props.urlItem}</span>
+            </p>
+            <Label className="method_item">
               <Icon name="mail" /> {this.props.method}
             </Label>
           </Accordion.Content>
