@@ -1,0 +1,20 @@
+.message {
+  margin-top: 50px !important;
+  background-color: #ff59004f !important;
+}
+.input_container {
+  padding-top: 20px;
+}
+.label {
+  padding: 10px;
+  color: #f60039;
+}
+.buttonlabel {
+  margin-left: 60px !important;
+}
+.buttonwidth {
+  margin-left: 34px;
+}
+.custom {
+  padding-top: 15px;
+}

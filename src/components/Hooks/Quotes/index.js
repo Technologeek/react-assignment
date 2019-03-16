@@ -29,15 +29,19 @@ const Quotes = () => {
     <Container>
       <Card className="custom_width">
         <Card.Content className="content_custom ">
-          <Card.Header>Some Quotes Funny</Card.Header>
+          <Card.Header className="custom_title">
+            {' '}
+            Randomly Generated System Quotes{' '}
+          </Card.Header>
           <Fragment>
             <Card.Meta>
-              <span className="date">{author}</span>
+              <span className="date custom_color">{author}</span>
             </Card.Meta>
-            <Card.Description>{quote}</Card.Description>
+            <Card.Description className="custom_author">
+              {quote}
+            </Card.Description>
           </Fragment>
         </Card.Content>
-        <Card.Content extra />
       </Card>
     </Container>
   )

@@ -1,8 +1,17 @@
 .content_custom {
   max-height: 40vh !important;
-  overflow-y: scroll !important;
-  overflow-x: hidden !important;
 }
 .custom_width {
   width: 100% !important;
+}
+.custom_title {
+  color: #ff5006e8 !important;
+  border-bottom: 0.1px #ff8900 solid;
+}
+.custom_author {
+  font-style: italic !important;
+  color: #6f6a6a !important;
+}
+.custom_color {
+  color: #ff0029 !important;
 }

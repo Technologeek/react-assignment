@@ -5,6 +5,7 @@ import JSONPretty from 'react-json-pretty'
 import JSONPrettyMon from 'react-json-pretty/themes/monikai.css'
 import { connect } from 'react-redux'
 import * as actions from '../../redux/ResponseUrl/actions'
+import './style.css'
 
 const dropDownOptions = [
   { key: 1, text: 'GET', value: 1 },
@@ -133,58 +134,68 @@ class ApiDisplay extends Component {
     } = this.state
     return (
       <div className="modal-register">
-        <Segment>
+        <Segment className="message">
           This is your Api Display Section.All the Url's from the collection can
           be called and the respective responses willbe displayed here. You can
           also make new direct requests to urls but only get and post types are
           supported at the moment.
         </Segment>
-        <span>URL: </span>
-        <Input
-          name="url"
-          label={{ icon: 'asterisk' }}
-          labelPosition="right corner"
-          placeholder="Search..."
-          defaultValue={this.state.url}
-          ref={this.input}
-          // onChange={this.handleInputChange}
-          // onBlur={this.handleInputChange}
-        />
-        <span>Method: </span>
-        <Dropdown
-          clearable
-          options={dropDownOptions}
-          selection
-          onChange={this.getDropDownValue}
-        />
-        <span>Body: </span>
-        <Input
-          name="key"
-          placeholder="Key..."
-          value={this.state.key}
-          onChange={this.handleChange}
-          onBlur={this.handleInputChange}
-        />
-        <Input
-          name="value"
-          placeholder="Value..."
-          value={this.state.value}
-          onChange={this.handleChange}
-          onBlur={this.handleInputChange}
-        />
-        <Input
-          name="contentType"
-          placeholder="Content Type..."
-          value={this.state.contentType}
-          onChange={this.handleChange}
-          onBlur={this.handleInputChange}
-        />
-        <Button
-          content="SEND"
-          icon="right arrow"
-          labelPosition="right"
-          onClick={this.handleFormSubmit}
-        />
+        <div className="input_container">
+          <div className="inputbox">
+            <span className="label">URL: </span>
+            <Input
+              name="url"
+              label={{ icon: 'asterisk' }}
+              labelPosition="right corner"
+              placeholder="Https/Https.."
+              defaultValue={this.state.url}
+              ref={this.input}
+              // onChange={this.handleInputChange}
+              // onBlur={this.handleInputChange}
+            />
+            <span className="label">Method: </span>
+            <Dropdown
+              clearable
+              options={dropDownOptions}
+              selection
+              onChange={this.getDropDownValue}
+            />
+            <span className="label">Body: </span>
+            <Input
+              name="key"
+              placeholder="Key..."
+              value={this.state.key}
+              onChange={this.handleChange}
+              onBlur={this.handleInputChange}
+            />
+            <Input
+              name="value"
+              placeholder="Value..."
+              value={this.state.value}
+              onChange={this.handleChange}
+              onBlur={this.handleInputChange}
+            />
+          </div>
+          <div className="inputbox custom">
+            <span className="label">Type: </span>
+            <Input
+              name="contentType"
+              placeholder="Content Type..."
+              value={this.state.contentType}
+              onChange={this.handleChange}
+              onBlur={this.handleInputChange}
+            />
+            <span className="buttonwidth">
+              <Button
+                className="buttonlabel"
+                content="SEND"
+                icon="right arrow"
+                labelPosition="right"
+                onClick={this.handleFormSubmit}
+              />
+            </span>
+          </div>
+        </div>
         <div className="response-container">
           {getResponseData === '' ? null : (
             <JSONPretty

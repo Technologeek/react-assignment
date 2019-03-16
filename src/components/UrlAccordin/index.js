@@ -108,7 +108,7 @@ export default class UrlAccordin extends Component {
               <span className="url_item">{this.props.urlItem}</span>
             </p>
             <Label className="method_item">
-              <Icon name="mail" /> {this.props.method}
+              <Icon name="send" /> {this.props.method}
             </Label>
           </Accordion.Content>
         </Accordion>
