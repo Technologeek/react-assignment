@@ -30,3 +30,12 @@
 .method_item {
   color: #009688 !important;
 }
+.update_icon {
+  color: #ff5300;
+}
+.delete_icon {
+  color: red;
+}
+.icon_margin {
+  margin-left: 150px;
+}

@@ -9,6 +9,13 @@ const CollectionListWrapper = styled.div`
     width: 100px !important;
     margin-left: 43px;
   }
+  .set_color {
+    color: #ff5006e8 !important;
+    border-bottom: 0.1px #ff8900 solid;
+  }
+  .custom_color {
+    color: #ff5006bf !important;
+  }
 `
 
 export { CollectionListWrapper }

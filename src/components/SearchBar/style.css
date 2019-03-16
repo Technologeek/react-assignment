@@ -1,0 +1,9 @@
+.ui.search .prompt {
+  border-radius: 0rem !important;
+}
+.ui.fluid.search {
+  padding-top: 10px !important;
+}
+.ui.icon.input {
+  width: 250px !important;
+}

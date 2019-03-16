@@ -6,6 +6,7 @@ import NewCollectionModal from '../../containers/NewCollectionModal'
 import { Dropdown } from 'semantic-ui-react'
 import emptylist from '../../static/emptylist.png'
 import axios from 'axios'
+import SearchBar from '../SearchBar'
 
 export default class CollectionsList extends Component {
   constructor(props) {
@@ -30,7 +31,16 @@ export default class CollectionsList extends Component {
         />
         <Card>
           <Card.Content>
-            <Card.Header>Your Collections</Card.Header>
+            <Card.Header className="set_color">Your Collections</Card.Header>
+            <Card.Meta>
+              <span className="date custom_color">
+                Your Collections Appear here
+              </span>
+            </Card.Meta>
+            <SearchBar
+              getAllCollections={this.props.collections}
+              userId={userId}
+            />
           </Card.Content>
           {Object.keys(this.props.collections).length === 0 ? (
             <div>

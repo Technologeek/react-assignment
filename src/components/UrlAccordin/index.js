@@ -70,34 +70,36 @@ export default class UrlAccordin extends Component {
           >
             <Icon name="hotjar" className="custom_icon_color" />
             <span className="custom_color_title">{this.props.title}</span>
+            <span>
+              {this.props.title === 'Default Collection' ? null : (
+                <span className="icon_margin">
+                  <Icon
+                    data-tip
+                    data-for="deleteIcon"
+                    name="delete"
+                    onClick={this.deleteCollection}
+                    className="delete_icon"
+                  />
+                  <ReactTooltip id="deleteIcon" type="error">
+                    <span>Delete Collection?</span>
+                  </ReactTooltip>
+                  <Icon
+                    data-tip
+                    data-for="updateIcon"
+                    name="edit"
+                    onClick={this.handleSignupOpenModal}
+                    className="update_icon"
+                  />
+                  <ReactTooltip id="updateIcon" type="warning">
+                    <span>Update Collection?</span>
+                  </ReactTooltip>
+                </span>
+              )}
+            </span>
             <p>
               <Icon name="unordered list" className="custom_icon_color_2" />
               <span className="custom_description">
                 {this.props.description}
-              </span>
-              <span className="customIcon">
-                {this.props.title === 'Default Collection' ? null : (
-                  <Fragment>
-                    <Icon
-                      data-tip
-                      data-for="deleteIcon"
-                      name="delete"
-                      onClick={this.deleteCollection}
-                    />
-                    <ReactTooltip id="deleteIcon" type="error">
-                      <span>Delete Collection?</span>
-                    </ReactTooltip>
-                    <Icon
-                      data-tip
-                      data-for="updateIcon"
-                      name="content"
-                      onClick={this.handleSignupOpenModal}
-                    />
-                    <ReactTooltip id="updateIcon" type="warning">
-                      <span>Update Collection?</span>
-                    </ReactTooltip>
-                  </Fragment>
-                )}
               </span>
             </p>
           </Accordion.Title>
