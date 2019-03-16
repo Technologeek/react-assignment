@@ -7,10 +7,10 @@ import { connect } from 'react-redux'
 import * as actions from '../../redux/ResponseUrl/actions'
 import './style.css'
 
-const dropDownOptions = [
-  { key: 1, text: 'GET', value: 1 },
-  { key: 2, text: 'POST', value: 2 },
-]
+// const dropDownOptions = [
+//   { key: 1, text: 'GET', value: 1 },
+//   { key: 2, text: 'POST', value: 2 },
+// ]
 class ApiDisplay extends Component {
   constructor(props) {
     super(props)
@@ -19,6 +19,7 @@ class ApiDisplay extends Component {
       url: '',
       key: '',
       value: '',
+      dropdown: [],
       contentType: '',
       body: '',
       getResponseData: '',
@@ -26,14 +27,20 @@ class ApiDisplay extends Component {
       postResponseData: '',
       postResponseError: '',
       errors: '',
+      dropDownOptions: [
+        { key: 1, text: 'GET', value: 1 },
+        { key: 2, text: 'POST', value: 2 },
+      ],
     }
     this.input = React.createRef()
   }
 
   static getDerivedStateFromProps(props, currentState) {
+    console.log(props.urldata.method)
     if (currentState.url !== props.urldata) {
       return {
         url: props.urldata.url,
+        dropdown: props.urldata.method,
       }
     }
     // Return null to indicate no change to state.
@@ -123,6 +130,7 @@ class ApiDisplay extends Component {
   render() {
     const { errors } = this.state
     console.log(this.props)
+    console.log(this.state.dropdown)
     const {
       method,
       url,
@@ -147,7 +155,7 @@ class ApiDisplay extends Component {
               name="url"
               label={{ icon: 'asterisk' }}
               labelPosition="right corner"
-              placeholder="Https/Https.."
+              placeholder="Http/Https.."
               defaultValue={this.state.url}
               ref={this.input}
               // onChange={this.handleInputChange}
@@ -158,13 +166,14 @@ class ApiDisplay extends Component {
               clearable
               options={dropDownOptions}
               selection
+              value={this.state.dropdown}
+              defaultValue={this.state.dropdown}
               onChange={this.getDropDownValue}
             />
             <span className="label">Body: </span>
             <Input
               name="key"
               placeholder="Key..."
-              value={this.state.key}
               onChange={this.handleChange}
               onBlur={this.handleInputChange}
             />
