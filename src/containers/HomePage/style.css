@@ -1,0 +1,29 @@
+.max-width {
+  height: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.custom_class {
+  height: 80vh !important;
+  background-image: linear-gradient(#ff662a, #920032) !important;
+}
+.custom_widthnew {
+  width: 35% !important;
+  margin: 0 auto !important;
+}
+h1 {
+  color: #fefefe;
+  font-family: monospace;
+  font-size: -webkit-xxx-large;
+}
+.custom_text {
+  color: #fefefe;
+  font-size: large;
+  font-family: monospace;
+}
+.custom_text2 {
+  color: #fefefe;
+  font-size: large;
+  font-family: monospace;
+}

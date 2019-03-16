@@ -178,7 +178,7 @@ export default class UpdateCollectionModal extends Component {
                   ) : null}
                 </div>
                 <button type="button" onClick={this.handleFormSubmit}>
-                  {this.props.spinner ? (
+                  {this.props.loader ? (
                     <Loader />
                   ) : (
                     <span>Update Collection</span>

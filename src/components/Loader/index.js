@@ -1,9 +1,10 @@
 import React from 'react'
 import { LoaderContainer } from './style'
+
 const Loader = () => {
   return (
     <LoaderContainer>
-      <div class="lds-hourglass" />
+      <div className="lds-hourglass" />
     </LoaderContainer>
   )
 }

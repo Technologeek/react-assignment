@@ -11,6 +11,9 @@ const ModalWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 100;
+  .custom-textmessage {
+    color: #021e33;
+  }
   .modal-register {
     ${globalStyle.flex};
     ${globalStyle.column};
@@ -27,6 +30,7 @@ const ModalWrapper = styled.div`
     @media (min-width: ${globalStyle.small}) {
       width: 550px;
       padding: 50px 75px;
+      height: 90%;
     }
     .err-message {
       color: #f00;

@@ -88,11 +88,7 @@ class ModalLogin extends Component {
             <h3>Login</h3>
             <div className="modal-register__form">
               {backEndError ? (
-                <ul className="err-message">
-                  {backEndError.error.map((errors, index) => (
-                    <li key={index}>{errors}</li>
-                  ))}
-                </ul>
+                <ul className="err-message">{backEndError}</ul>
               ) : null}
               <div className="input-field">
                 <div className="form-group">
@@ -125,7 +121,7 @@ class ModalLogin extends Component {
                 </div>
 
                 <button type="button" onClick={this.handleFormSubmit}>
-                  {this.props.spinner ? <Loader /> : <span>Login</span>}
+                  {this.props.loader ? <Loader /> : <span>Login</span>}
                 </button>
               </div>
             </div>
@@ -141,6 +137,8 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     router: state.router,
+    loader: state.loader,
+    error: state.error,
   }
 }
 export default connect(

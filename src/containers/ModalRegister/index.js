@@ -1,11 +1,11 @@
 import React, { Component, StrictMode } from 'react'
 import { ModalWrapper } from './style'
 import { Validations } from '../../utils'
-import Loader from '../../components/Loader'
 import * as actions from '../../redux/UserAuth/actions'
 import { connect } from 'react-redux'
 import history from '../../utils/history'
 import panda from '../../static/panda.png'
+import Loader from '../../components/Loader'
 
 class ModalRegister extends Component {
   constructor(props) {
@@ -62,11 +62,8 @@ class ModalRegister extends Component {
     let errors = null
     this.state.fields.forEach(field => {
       let fieldValue = this.state[field]
-      if (field !== 'email') {
-        errors = this.validations.validate(field, fieldValue)
-      } else if (email !== '') {
-        errors = this.validations.validate(field, fieldValue)
-      }
+      errors = this.validations.validate(field, fieldValue)
+      errors = this.validations.validate(field, fieldValue)
     })
     this.handleConfirmPassword()
     this.setState({
@@ -83,7 +80,7 @@ class ModalRegister extends Component {
     this.props.registerNewUserDatabse(dataTosend)
   }
   render() {
-    console.log(this.props)
+    console.log(this.props.loader)
     if (Object.keys(this.props.user).length !== 0 && this.props.userId) {
       history.push('/Dashboard')
       this.props.onClick()
@@ -104,18 +101,14 @@ class ModalRegister extends Component {
             <div className="modal-close" onClick={this.props.onClick} />
             <div className="logo-heading">
               <img className="logo-heading__nine" src={panda} alt="" />
-              <span className="logo-heading__sportsbook">
+              <span className="custom-textmessage">
                 Get Your Panda Hats on!
               </span>
             </div>
             <h3>Register</h3>
             <div className="modal-register__form">
               {backEndError ? (
-                <ul className="err-message">
-                  {backEndError.error.map((errors, index) => (
-                    <li key={index}>{errors}</li>
-                  ))}
-                </ul>
+                <ul className="err-message">{backEndError}</ul>
               ) : null}
               <div className="input-field">
                 <div className="form-group">
@@ -167,7 +160,7 @@ class ModalRegister extends Component {
                   <input
                     type="email"
                     className="form-control"
-                    placeholder="Email (Optional)"
+                    placeholder="Email"
                     name="email"
                     value={this.state.email || ''}
                     onChange={this.handleChange}
@@ -178,7 +171,7 @@ class ModalRegister extends Component {
                   ) : null}
                 </div>
                 <button type="button" onClick={this.handleFormSubmit}>
-                  {this.props.spinner ? <Loader /> : <span>Register</span>}
+                  {this.props.loader ? <Loader /> : <span>Register</span>}
                 </button>
               </div>
             </div>
@@ -193,6 +186,8 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     userId: state.id,
+    loader: state.loader,
+    error: state.error,
   }
 }
 export default connect(
