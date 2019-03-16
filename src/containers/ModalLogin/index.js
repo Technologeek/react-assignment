@@ -13,7 +13,7 @@ class ModalLogin extends Component {
     super(props)
     this.validations = new Validations()
     this.state = {
-      fields: ['email', 'password'],
+      fields: ['email'],
       email: '',
       password: '',
       errors: this.validations.errors,
@@ -62,6 +62,11 @@ class ModalLogin extends Component {
     }
     this.props.loginUser({ email, password })
     this.props.loginNewUserDatabse(email)
+  }
+  componentWillUnmount() {
+    console.log('reached')
+    const { resetErrors } = this.props
+    resetErrors()
   }
   render() {
     console.log(this.props)

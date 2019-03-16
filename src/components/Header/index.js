@@ -26,6 +26,7 @@ class Header extends Component {
     this.setState({
       showModal: false,
     })
+    this.props.resetErrors()
   }
 
   handleLoginOpenModal = () => {
@@ -37,6 +38,7 @@ class Header extends Component {
     this.setState({
       showLoginModal: false,
     })
+    this.props.resetErrors()
   }
   redirect = () => {
     history.push('/not')
