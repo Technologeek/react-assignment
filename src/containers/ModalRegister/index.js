@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import history from '../../utils/history'
 import panda from '../../static/panda.png'
 import Loader from '../../components/Loader'
+import PropTypes from 'prop-types'
 
 class ModalRegister extends Component {
   constructor(props) {
@@ -181,6 +182,10 @@ class ModalRegister extends Component {
       </StrictMode>
     )
   }
+}
+ModalRegister.propTypes = {
+  error: PropTypes.string,
+  loader: PropTypes.bool,
 }
 const mapStateToProps = state => {
   return {

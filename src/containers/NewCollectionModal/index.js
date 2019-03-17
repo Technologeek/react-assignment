@@ -9,6 +9,7 @@ import * as actions from '../../redux/UserCollection/actions'
 import panda from '../../static/panda.png'
 import { Dropdown } from 'semantic-ui-react'
 import axios from 'axios'
+import PropTypes from 'prop-types'
 
 const dropDownOptions = [
   { key: 1, text: 'GET', value: 1 },
@@ -186,6 +187,8 @@ class NewCollectionModal extends Component {
     )
   }
 }
+
+NewCollectionModal.propTypes = {}
 
 const mapStateToProps = state => {
   return {

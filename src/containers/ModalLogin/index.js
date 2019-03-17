@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import history from '../../utils/history'
 import * as actions from '../../redux/UserAuth/actions'
 import panda from '../../static/panda.png'
+import PropTypes from 'prop-types'
 
 class ModalLogin extends Component {
   constructor(props) {
@@ -136,6 +137,10 @@ class ModalLogin extends Component {
       </StrictMode>
     )
   }
+}
+ModalLogin.propTypes = {
+  error: PropTypes.string,
+  loader: PropTypes.bool,
 }
 
 const mapStateToProps = state => {

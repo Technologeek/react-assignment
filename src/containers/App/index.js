@@ -10,30 +10,33 @@ import history from '../../utils/history'
 import RouteNotFound from '../../components/RouteNotFound'
 import ProfilePage from '../../containers/ProfilePage'
 import 'semantic-ui-css/semantic.min.css'
+import ErrorBoundary from '../../components/ErrorPage'
 
 import { GlobalStyle } from '../../styles/global-styles'
 
 export default function App() {
   return (
     <div>
-      <Router history={history}>
-        <div>
-          <Header />
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/Signup" component={ModalRegister} />
-            <Route exact path="/Login" component={ModalLogin} />
-            <Route exact path="/Dashboard" component={DashBoard} />
-            <Route
-              path="/:userId/Profile"
-              render={props => <ProfilePage {...props} />}
-            />
-            <Route component={RouteNotFound} />
-          </Switch>
-          <Footer />
-          <GlobalStyle />
-        </div>
-      </Router>
+      <ErrorBoundary>
+        <Router history={history}>
+          <div>
+            <Header />
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/Signup" component={ModalRegister} />
+              <Route exact path="/Login" component={ModalLogin} />
+              <Route exact path="/Dashboard" component={DashBoard} />
+              <Route
+                path="/:userId/Profile"
+                render={props => <ProfilePage {...props} />}
+              />
+              <Route component={RouteNotFound} />
+            </Switch>
+            <Footer />
+            <GlobalStyle />
+          </div>
+        </Router>
+      </ErrorBoundary>
     </div>
   )
 }

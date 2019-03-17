@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import logo from '../../static/logo.png'
 import history from '../../utils/history'
 import * as actions from '../../redux/UserAuth/actions'
-import { persistStore } from 'redux-persist'
+import PropTypes from 'prop-types'
 
 class Header extends Component {
   constructor(props) {
@@ -103,6 +103,10 @@ class Header extends Component {
       </HeaderContainer>
     )
   }
+}
+Header.propTypes = {
+  show: PropTypes.bool,
+  onClick: PropTypes.func,
 }
 const mapStateToProps = state => {
   return {

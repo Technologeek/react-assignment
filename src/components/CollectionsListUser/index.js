@@ -7,6 +7,7 @@ import { Dropdown } from 'semantic-ui-react'
 import emptylist from '../../static/emptylist.png'
 import axios from 'axios'
 import SearchBar from '../SearchBar'
+import PropTypes from 'prop-types'
 
 export default class CollectionsList extends Component {
   constructor(props) {
@@ -72,4 +73,10 @@ export default class CollectionsList extends Component {
       </CollectionListWrapper>
     )
   }
+}
+CollectionsList.propTypes = {
+  show: PropTypes.bool,
+  onClick: PropTypes.func,
+  getAllCollections: PropTypes.func,
+  userId: PropTypes.number.isRequired,
 }

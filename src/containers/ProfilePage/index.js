@@ -5,6 +5,8 @@ import axios from 'axios'
 import UIAvatar from 'react-ui-avatars'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import history from '../../utils/history'
+import './style.css'
+import PropTypes from 'prop-types'
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -32,20 +34,21 @@ class ProfilePage extends Component {
     console.log(this.props)
     const { userName, userEmail } = this.state
     return (
-      <Grid columns={1} divided>
-        <Grid.Row>
+      <Grid columns={1} divided className="segment centered">
+        <Grid.Row className="row_grid">
           <Grid.Column>
             <Card>
               <UIAvatar
                 name={userName}
                 size={512}
-                length={userName.length - 3}
+                length="2"
                 bold={true}
+                className="imagefix"
               />
               <Card.Content>
                 <Card.Header>{userName}</Card.Header>
                 <Card.Meta>
-                  <span className="date">Joined in 2015</span>
+                  <span className="date">{userEmail}</span>
                 </Card.Meta>
                 <Card.Description>
                   {userName} is an emerging developer in Waterford.
@@ -64,7 +67,14 @@ class ProfilePage extends Component {
     )
   }
 }
-
+ProfilePage.propTypes = {
+  userName: PropTypes.string.isRequired,
+  userEmail: PropTypes.string.isRequired,
+}
+ProfilePage.defaultProps = {
+  userName: 'Unknown',
+  userEmail: 'Unknown',
+}
 const mapStateToProps = state => {
   return {
     user: state.user,

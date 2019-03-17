@@ -2,6 +2,8 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { Container, Grid, Card, Icon, Image } from 'semantic-ui-react'
 import './style.css'
 import axios from 'axios'
+import PropTypes from 'prop-types'
+
 const useAxios = url => {
   const [data, updateData] = useState(undefined)
 
@@ -45,5 +47,13 @@ const Quotes = () => {
       </Card>
     </Container>
   )
+}
+Quotes.propTypes = {
+  author: PropTypes.string,
+  quote: PropTypes.string,
+}
+Quotes.defaultProps = {
+  author: 'Rahul',
+  quote: 'Programming is an art, and not every programmer is an artist.',
 }
 export default Quotes

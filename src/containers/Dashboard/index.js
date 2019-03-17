@@ -7,6 +7,7 @@ import * as actions from '../../redux/UserCollection/actions'
 import { connect } from 'react-redux'
 import { Container, Grid, Card, Icon, Image } from 'semantic-ui-react'
 import history from '../../utils/history'
+import PropTypes from 'prop-types'
 
 import './style.css'
 
@@ -66,3 +67,7 @@ export default connect(
   actions,
   null
 )(DashBoard)
+
+DashBoard.propTypes = {
+  collections: PropTypes.array,
+}

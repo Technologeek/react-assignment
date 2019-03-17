@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Search, Grid, Header, Segment } from 'semantic-ui-react'
 import './style.css'
 import axios from 'axios'
+import PropTypes from 'prop-types'
 
 const source = []
 export default class SearchBar extends React.PureComponent {
@@ -59,4 +60,7 @@ export default class SearchBar extends React.PureComponent {
       </div>
     )
   }
+}
+SearchBar.propTypes = {
+  results: PropTypes.array,
 }

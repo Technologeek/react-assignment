@@ -18,3 +18,10 @@
 .custom {
   padding-top: 15px;
 }
+.error {
+  font-size: larger;
+  color: #fd1532;
+}
+.error_response {
+  background-color: #ff5884;
+}
