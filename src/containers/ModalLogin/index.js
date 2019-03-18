@@ -9,7 +9,7 @@ import * as actions from '../../redux/UserAuth/actions'
 import panda from '../../static/panda.png'
 import PropTypes from 'prop-types'
 
-class ModalLogin extends Component {
+export class ModalLogin extends Component {
   constructor(props) {
     super(props)
     this.validations = new Validations()
@@ -64,18 +64,15 @@ class ModalLogin extends Component {
     this.props.loginUser({ email, password })
     this.props.loginNewUserDatabse(email)
   }
-  componentWillUnmount() {
-    console.log('reached')
-    const { resetErrors } = this.props
-    resetErrors()
-  }
+
   render() {
     console.log(this.props)
-    if (Object.keys(this.props.user).length !== 0) {
-      history.push('/Dashboard')
-      this.props.onClick()
+    if (this.props.user) {
+      if (Object.keys(this.props.user).length !== 0) {
+        history.push('/Dashboard')
+        this.props.onClick()
+      }
     }
-
     const { errors, passwordError } = this.state
     const backEndError = this.props.error
     return (
@@ -101,7 +98,7 @@ class ModalLogin extends Component {
                   <input
                     type="email"
                     className="form-control"
-                    placeholder="Email (Optional)"
+                    placeholder="Email"
                     name="email"
                     value={this.state.email || ''}
                     onChange={this.handleChange}

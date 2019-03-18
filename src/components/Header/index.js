@@ -9,7 +9,7 @@ import history from '../../utils/history'
 import * as actions from '../../redux/UserAuth/actions'
 import PropTypes from 'prop-types'
 
-class Header extends Component {
+export class Header extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -46,20 +46,25 @@ class Header extends Component {
 
   render() {
     let userId = this.props && this.props.userId
-    const isLoggedIn = Object.keys(this.props.user).length !== 0
+    const isLoggedIn = Object.keys(this.props.user || {}).length !== 0
     if (!isLoggedIn) {
       history.push('/')
     }
     return (
       <HeaderContainer>
-        <ModalRegister
-          show={this.state.showModal}
-          onClick={this.handleSignupModalClose}
-        />
-        <ModalLogin
-          show={this.state.showLoginModal}
-          onClick={this.handleLoginModalClose}
-        />
+        {this.state.showModal ? (
+          <ModalRegister
+            show={this.state.showModal}
+            onClick={this.handleSignupModalClose.bind(this)}
+          />
+        ) : null}
+        {this.state.showLoginModal ? (
+          <ModalLogin
+            show={this.state.showLoginModal}
+            onClick={this.handleLoginModalClose}
+          />
+        ) : null}
+
         <div className="leftNav">
           <div className="log">
             <img
@@ -72,9 +77,7 @@ class Header extends Component {
         </div>
         <div className="rightNav">
           <ul>
-            <li>
-              <Link to="/about"> What is Api-Pot?</Link>
-            </li>
+            <li>{/* <Link to="/about"> What is API-PANDA?</Link> */}</li>
             <li>
               <div>
                 {isLoggedIn ? (

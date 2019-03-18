@@ -25,7 +25,8 @@ export function loginUser({ email, password }) {
             payload: response.user,
           })
           console.log(response.user)
-          //dispatch(resetErrors())
+          dispatch(resetErrors())
+          dispatch(hideLoadingIcon())
         })
         .catch(error => {
           dispatch(hideLoadingIcon())
@@ -42,7 +43,7 @@ export function registerNewUser({ email, password }) {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(response => {
-        dispatch(showLoadingIcon())
+        dispatch(hideLoadingIcon())
         dispatch({
           type: REGISTER_NEW_USER,
           payload: response.user,

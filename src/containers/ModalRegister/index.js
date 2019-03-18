@@ -8,7 +8,7 @@ import panda from '../../static/panda.png'
 import Loader from '../../components/Loader'
 import PropTypes from 'prop-types'
 
-class ModalRegister extends Component {
+export class ModalRegister extends Component {
   constructor(props) {
     super(props)
     this.validations = new Validations()
@@ -82,9 +82,11 @@ class ModalRegister extends Component {
   }
   render() {
     console.log(this.props.loader)
-    if (Object.keys(this.props.user).length !== 0 && this.props.userId) {
-      history.push('/Dashboard')
-      this.props.onClick()
+    if (this.props.user) {
+      if (Object.keys(this.props.user).length !== 0 && this.props.userId) {
+        history.push('/Dashboard')
+        this.props.onClick()
+      }
     }
     const { errors, passwordError } = this.state
     const backEndError = this.props.error
