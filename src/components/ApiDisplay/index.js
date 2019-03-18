@@ -17,6 +17,7 @@ const dropDownOptions = [
 class ApiDisplay extends Component {
   constructor(props) {
     super(props)
+    this.dynamicallySetDiv()
     this.state = {
       method: '',
       url: '',
@@ -70,7 +71,6 @@ class ApiDisplay extends Component {
   }
 
   getDropDownValue = event => {
-    console.log('reached')
     event.preventDefault()
     event.stopPropagation()
     this.setState({
@@ -78,6 +78,18 @@ class ApiDisplay extends Component {
     })
   }
 
+  dynamicallySetDiv = () => {
+    console.log('reached')
+    let showDynamicgetDiv = Object.keys(this.props.reqdata).length !== 0
+    if (showDynamicgetDiv) {
+      this.setState({
+        showgetResponseDataDiv: true,
+      })
+    }
+  }
+  componentWillReceiveProps() {
+    this.dynamicallySetDiv()
+  }
   handleFormSubmit = event => {
     console.log(this.input)
     const { method, key, url, value, body, contentType } = this.state
@@ -148,8 +160,6 @@ class ApiDisplay extends Component {
 
   render() {
     const { errors } = this.state
-    console.log(this.props)
-    console.log(this.state.placeholder)
     const {
       method,
       url,
@@ -164,6 +174,13 @@ class ApiDisplay extends Component {
       showgetResponseDataDiv,
       showpostResponseDataDiv,
     } = this.state
+    let dataToDisplay = getResponseData || this.props.reqdata
+    console.log(dataToDisplay)
+    console.log(showgetResponseDataDiv)
+    console.log(
+      getResponseData === '' && Object.keys(this.props.reqdata).length == 0
+    )
+    console.log(Object.keys(this.props.reqdata).length)
     return (
       <ErrorBoundary>
         <div className="modal-register">
@@ -230,12 +247,13 @@ class ApiDisplay extends Component {
             </div>
           </div>
           <div className="response-container">
-            {getResponseData === '' ? null : (
+            {getResponseData === '' &&
+            Object.keys(this.props.reqdata).length == 0 ? null : (
               <div>
                 {showgetResponseDataDiv ? (
                   <JSONPretty
                     id="json-pretty"
-                    data={JSON.stringify(getResponseData)}
+                    data={JSON.stringify(dataToDisplay)}
                     theme={JSONPrettyMon}
                   />
                 ) : null}
@@ -298,6 +316,7 @@ ApiDisplay.propTypes = {
 const mapStateToProps = state => {
   return {
     urldata: state.urldata,
+    reqdata: state.reqdata,
   }
 }
 export default connect(

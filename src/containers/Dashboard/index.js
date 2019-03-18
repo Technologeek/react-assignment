@@ -41,6 +41,7 @@ class DashBoard extends Component {
                   getUrlDataForResponse={this.props.getUrlDataForResponse.bind(
                     this
                   )}
+                  makeRequest={this.props.sendUrlResponse.bind(this)}
                   userId={id}
                 />
               </Grid.Column>

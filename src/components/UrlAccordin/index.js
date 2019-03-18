@@ -46,7 +46,7 @@ export default class UrlAccordin extends Component {
       url: this.props.urlItem,
       method: this.props.method,
     }
-    this.props.getUrlDataForResponse(urlDataToSend)
+    this.props.makeRequest(urlDataToSend)
   }
   render() {
     const { activeIndex } = this.state

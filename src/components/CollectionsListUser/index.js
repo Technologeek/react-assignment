@@ -62,6 +62,7 @@ export default class CollectionsList extends Component {
                     getAllCollections={getAllCollections}
                     getUrlDataForResponse={getUrlDataForResponse}
                     userId={userId}
+                    makeRequest={this.props.makeRequest}
                   />
                 )
               })}

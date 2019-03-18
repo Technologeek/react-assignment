@@ -64,11 +64,15 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/core": "^7.3.4",
     "@babel/polyfill": "^7.2.5",
-    "@storybook/react": "^5.0.1",
     "@storybook/addon-actions": "^5.0.1",
+    "@storybook/addon-console": "^1.1.0",
+    "@storybook/addon-info": "^5.0.1",
+    "@storybook/addon-knobs": "^5.0.1",
     "@storybook/addon-links": "^5.0.1",
     "@storybook/addons": "^5.0.1",
-    "@babel/core": "^7.3.4"
+    "@storybook/react": "^5.0.1",
+    "storybook-addon-jsx": "^7.0.0"
   }
 }
