@@ -60,11 +60,12 @@ export default class CollectionsList extends Component {
     return (
       <ErrorBoundary>
         <CollectionListWrapper>
-          <NewCollectionModal
-            show={this.state.showModal}
-            onClick={this.handleSignupModalClose}
-          />
-
+          {this.state.showModal ? (
+            <NewCollectionModal
+              show={this.state.showModal}
+              onClick={this.handleSignupModalClose}
+            />
+          ) : null}
           <Card>
             <Card.Content>
               <Card.Header className="set_color">

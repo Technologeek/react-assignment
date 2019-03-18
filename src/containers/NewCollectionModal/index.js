@@ -15,7 +15,7 @@ const dropDownOptions = [
   { key: 1, text: 'GET', value: 1 },
   { key: 2, text: 'POST', value: 2 },
 ]
-class NewCollectionModal extends Component {
+export class NewCollectionModal extends Component {
   constructor(props) {
     super(props)
     this.validations = new Validations()
@@ -172,7 +172,7 @@ class NewCollectionModal extends Component {
                   ) : null}
                 </div>
                 <button type="button" onClick={this.handleFormSubmit}>
-                  {this.props.spinner ? (
+                  {this.props.loader ? (
                     <Loader />
                   ) : (
                     <span>Create Collection</span>
@@ -194,6 +194,7 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     userId: state.id,
+    loader: state.loader,
   }
 }
 export default connect(

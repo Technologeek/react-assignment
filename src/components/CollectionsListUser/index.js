@@ -26,10 +26,6 @@ export default class CollectionsList extends Component {
     let userId = this.props && this.props.userId
     return (
       <CollectionListWrapper>
-        <NewCollectionModal
-          show={this.state.showModal}
-          onClick={this.handleSignupModalClose}
-        />
         <Card>
           <Card.Content>
             <Card.Header className="set_color">Your Collections</Card.Header>
@@ -43,29 +39,31 @@ export default class CollectionsList extends Component {
               userId={userId}
             />
           </Card.Content>
-          {Object.keys(this.props.collections).length === 0 ? (
+          {this.props.collections &&
+          Object.keys(this.props.collections).length === 0 ? (
             <div>
               <img src={emptylist} className="custom_width" />
               <p>Panda Couldn't Find Any Collections</p>
             </div>
           ) : (
             <Fragment>
-              {this.props.collections.map((collections, key) => {
-                console.log(collections)
-                return (
-                  <UrlAccordin
-                    id={collections.id}
-                    title={collections.name}
-                    description={collections.description}
-                    urlItem={collections.url}
-                    method={collections.method}
-                    getAllCollections={getAllCollections}
-                    getUrlDataForResponse={getUrlDataForResponse}
-                    userId={userId}
-                    makeRequest={this.props.makeRequest}
-                  />
-                )
-              })}
+              {this.props.collections &&
+                this.props.collections.map((collections, key) => {
+                  console.log(collections)
+                  return (
+                    <UrlAccordin
+                      id={collections.id}
+                      title={collections.name}
+                      description={collections.description}
+                      urlItem={collections.url}
+                      method={collections.method}
+                      getAllCollections={getAllCollections}
+                      getUrlDataForResponse={getUrlDataForResponse}
+                      userId={userId}
+                      makeRequest={this.props.makeRequest}
+                    />
+                  )
+                })}
             </Fragment>
           )}
 

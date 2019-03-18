@@ -13,6 +13,9 @@ import Quotes from '../src/components/Hooks/Quotes'
 import { Header } from '../src/components/Header'
 import { ModalRegister } from '../src/containers/ModalRegister'
 import { ModalLogin } from '../src/containers/ModalLogin'
+import CollectionsList from '../src/components/CollectionsList'
+import CollectionsListUser from '../src/components/CollectionsListUser'
+import { NewCollectionModal } from '../src/containers/NewCollectionModal'
 
 setAddon(JSXAddon)
 setConsoleOptions({
@@ -79,7 +82,31 @@ const modalLoginPropsNext = {
   show: true,
   loader: true,
 }
+
 storiesOf('ModalLogin', module)
   .add('with default state', props => <ModalLogin />)
   .add('with form errors', props => <ModalLogin {...modalLoginProps} />)
   .add('with loading state', props => <ModalLogin {...modalLoginPropsNext} />)
+
+storiesOf('CollectionList Default', module).add('with default state', props => (
+  <CollectionsList />
+))
+const CollectionListProps = {
+  getAllCollections: action('getAllCollections'),
+  getUrlDataForResponse: action('getUrlDataForResponse'),
+  userId: '1',
+  show: true,
+  collections: '',
+}
+storiesOf('CollectionList User', module).add('with default state', props => (
+  <CollectionsListUser {...CollectionListProps} />
+))
+const newCollectionProps = {
+  show: true,
+}
+
+storiesOf('NewCollection Modal', module)
+  .add('with default state', props => <NewCollectionModal />)
+  .add('with opened state ', props => (
+    <NewCollectionModal {...newCollectionProps} />
+  ))
