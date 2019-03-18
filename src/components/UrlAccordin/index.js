@@ -13,6 +13,7 @@ export default class UrlAccordin extends Component {
     super(props)
     this.state = { activeIndex: -1, showModal: false }
     this.deleteCollection = this.deleteCollection.bind(this)
+    this.handleUrlClick = this.handleUrlClick.bind(this)
   }
   handleSignupOpenModal = () => {
     this.setState({
@@ -107,7 +108,7 @@ export default class UrlAccordin extends Component {
               </p>
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 0}>
-              <p onClick={this.handleUrlClick}>
+              <p onClick={this.handleUrlClick.bind(this)}>
                 <span className="url_item">{this.props.urlItem}</span>
               </p>
               <Label className="method_item">

@@ -32,7 +32,9 @@ class DashBoard extends Component {
           <Grid celled>
             <Grid.Row>
               <Grid.Column width={5}>
-                <CollectionsList />
+                <CollectionsList
+                  makeRequest={this.props.sendUrlResponse.bind(this)}
+                />
                 <CollectionsListUser
                   collections={this.props.collection}
                   getAllCollections={this.props.getAllUserCollections.bind(

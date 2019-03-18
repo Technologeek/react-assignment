@@ -49,6 +49,7 @@ export default class CollectionsList extends Component {
             description={collectionDescription}
             urlItem={urlItem}
             method={method}
+            makeRequest={this.props.makeRequest}
           />
         )
       })

@@ -2,6 +2,8 @@ import {
   DEFAULT_ACTION,
   SHOW_URL_RESPONSE,
   SHOW_URL_RESPONSE_ERROR,
+  SHOW_POST_RESPONSE_POST,
+  SHOW_POST_RESPONSE_ERROR,
 } from './constants'
 const initialState = {}
 const ResponseRequestReducer = (state = initialState, action) => {
@@ -11,6 +13,10 @@ const ResponseRequestReducer = (state = initialState, action) => {
     case SHOW_URL_RESPONSE:
       return action.payload
     case SHOW_URL_RESPONSE_ERROR:
+      return action.payload
+    case SHOW_POST_RESPONSE_POST:
+      return action.payload
+    case SHOW_POST_RESPONSE_ERROR:
       return action.payload
     default:
       return state

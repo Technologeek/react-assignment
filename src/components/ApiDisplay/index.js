@@ -79,7 +79,7 @@ class ApiDisplay extends Component {
   }
 
   dynamicallySetDiv = () => {
-    console.log('reached')
+    console.log(this.props.reqdata.flag)
     let showDynamicgetDiv = Object.keys(this.props.reqdata).length !== 0
     if (showDynamicgetDiv) {
       this.setState({
@@ -89,6 +89,11 @@ class ApiDisplay extends Component {
   }
   componentWillReceiveProps() {
     this.dynamicallySetDiv()
+    if (this.props.reqdata.flag) {
+      this.setState({
+        showgetResponseDataDiv: false,
+      })
+    }
   }
   handleFormSubmit = event => {
     console.log(this.input)
@@ -175,12 +180,31 @@ class ApiDisplay extends Component {
       showpostResponseDataDiv,
     } = this.state
     let dataToDisplay = getResponseData || this.props.reqdata
-    console.log(dataToDisplay)
-    console.log(showgetResponseDataDiv)
-    console.log(
-      getResponseData === '' && Object.keys(this.props.reqdata).length == 0
-    )
-    console.log(Object.keys(this.props.reqdata).length)
+    let errorToDisplay = getResponseError || this.props.reqdata.error
+    let postDataToDisplay = postResponseData || this.props.reqdata
+    let postDataError = postResponseData || this.props.reqdata.posterrordata
+    let objectToCheck = {}
+    let errorToCheck = {}
+    let postObjectToCheck = {}
+    let postErrorToCheck = {}
+
+    if (this.props.reqdata && this.props.reqdata.responseData) {
+      objectToCheck = this.props.reqdata.responseData
+      console.log(Object.keys(objectToCheck).length)
+    }
+    if (this.props.reqdata && this.props.reqdata.error) {
+      errorToCheck = this.props.reqdata.error
+      console.log(Object.keys(errorToCheck).length)
+    }
+    if (this.props.reqdata && this.props.reqdata.postdataRequest) {
+      postObjectToCheck = this.props.reqdata.postdataRequest
+      console.log(Object.keys(postObjectToCheck).length)
+    }
+    if (this.props.reqdata && this.props.reqdata.posterrordata) {
+      postErrorToCheck = this.props.reqdata.posterrordata
+      console.log(Object.keys(postErrorToCheck).length)
+    }
+    console.log(getResponseError)
     return (
       <ErrorBoundary>
         <div className="modal-register">
@@ -248,7 +272,7 @@ class ApiDisplay extends Component {
           </div>
           <div className="response-container">
             {getResponseData === '' &&
-            Object.keys(this.props.reqdata).length == 0 ? null : (
+            Object.keys(objectToCheck).length == 0 ? null : (
               <div>
                 {showgetResponseDataDiv ? (
                   <JSONPretty
@@ -260,44 +284,48 @@ class ApiDisplay extends Component {
               </div>
             )}
             <Fragment>
-              {postResponseData === '' ? null : (
+              {postResponseData === '' &&
+              Object.keys(postObjectToCheck).length == 0 ? null : (
                 <div>
                   {showpostResponseDataDiv ? (
                     <JSONPretty
                       id="json-pretty"
-                      data={JSON.stringify(postResponseData)}
+                      data={JSON.stringify(postDataToDisplay)}
                       theme={JSONPrettyMon}
                     />
                   ) : null}
                 </div>
               )}
             </Fragment>
-            {getResponseError === '' ? null : (
+            {getResponseError === '' &&
+            Object.keys(postErrorToCheck).length == 0 ? null : (
               <JSONPretty
                 id="json-pretty"
                 data={JSON.stringify(postResponseData)}
                 theme={JSONPrettyMon}
               />
             )}
-            {getResponseError === '' ? null : (
+            {getResponseError === '' &&
+            Object.keys(errorToCheck).length == 0 ? null : (
               <Fragment>
                 <p className="error">
                   Error! : Something went wrong with your request. Please ensure
                   your backend server have enabled CORS
                 </p>
                 <span className="error_response">
-                  {JSON.stringify(getResponseError)}
+                  {JSON.stringify(errorToDisplay)}
                 </span>
               </Fragment>
             )}
-            {postResponseError === '' ? null : (
+            {postResponseError === '' &&
+            Object.keys(postErrorToCheck).length == 0 ? null : (
               <Fragment>
                 <p className="error">
                   Error! : Something went wrong with your request. Please ensure
                   your backend server have enabled CORS
                 </p>
                 <span className="error_response">
-                  {JSON.stringify(postResponseError)}
+                  {JSON.stringify(postDataError)}
                 </span>
               </Fragment>
             )}

@@ -5,6 +5,8 @@ import {
   SHOW_URL_RESPONSE,
   SHOW_URL_RESPONSE_POST,
   SHOW_URL_RESPONSE_ERROR,
+  SHOW_POST_RESPONSE_POST,
+  SHOW_POST_RESPONSE_ERROR,
 } from './constants'
 import axios from 'axios'
 
@@ -51,29 +53,53 @@ export function sendUrlResponse(...data) {
           },
         })
         .then(response => {
+          let dataRequest = {
+            responseData: response,
+          }
           dispatch({
             type: SHOW_URL_RESPONSE,
-            payload: response,
+            payload: dataRequest,
           })
         })
         .catch(error => {
+          let errordata = {
+            error: error,
+          }
           dispatch({
             type: SHOW_URL_RESPONSE_ERROR,
-            payload: error,
+            payload: errordata,
           })
         })
     } else if (method === 'POST') {
-      // const dataToSend = {}
-      // dataToSend[dynamicKey] = value
-      // console.log(dataToSend)
-      // return axios
-      //   .post(url, dataToSend, {
-      //     headers: {
-      //       'Content-Type': contentType || 'application/json',
-      //     },
-      //   })
-      //   .then(response => {})
-      //   .catch(error => {})
+      const dataToSend = {}
+      let dynamicKey = data[0].key
+      let value = data[0].value
+      dataToSend[dynamicKey] = value
+      console.log(dataToSend)
+      axios
+        .post(url, dataToSend, {
+          headers: {
+            'Content-Type': contentType || 'application/json',
+          },
+        })
+        .then(response => {
+          let postdataRequest = {
+            responseDataPost: response,
+          }
+          dispatch({
+            type: SHOW_URL_RESPONSE,
+            payload: postdataRequest,
+          })
+        })
+        .catch(error => {
+          let posterrordata = {
+            posterror: error,
+          }
+          dispatch({
+            type: SHOW_URL_RESPONSE_ERROR,
+            payload: posterrordata,
+          })
+        })
     } else {
       console.log('Method Not Supported')
     }
