@@ -63,9 +63,9 @@ To run the project locally,
 
 ## Data Model Design.
 
-Diagram of app's data model (see example below) AND/OR a sample of the test data used (JSON or equivalent).
+Application Architecture
 
-![][model]
+![Component & Architecture Model][https://github.com/technologeek/react-assignment/blob/master/application%20architecture.png?raw=true]
 
 ## App Component Design.
 
