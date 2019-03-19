@@ -17,17 +17,17 @@ To give users a better front-end experience, I've taken into account the number 
 
 ## Application Features
 
-💊 Create a collection with an URL which will be persisted to a database.
-💊 One-Click access to previous collections.
-💊 One-Click make-request to previous API's.
-💊 Search function to filter the existing collections.
-💊 Perform instant GET/POST requests without creating a collection.
-💊 View a request's Response/Error data in a pretty format.
-💊 One click access for adding, updating & deleting collections.
-💊 Auto-generation of a profile image based on the user's initials.
-💊 Appropriate display of loaders, errors and strict validation when necessary.
-💊 Intuitive User-Interface design.
-💊 Bonus : System generated random quotes to keep developers motivated.
+- 💊 Create a collection with an URL which will be persisted to a database.
+- 💊 One-Click access to previous collections.
+- 💊 One-Click make-request to previous API's.
+- 💊 Search function to filter the existing collections.
+- 💊 Perform instant GET/POST requests without creating a collection.
+- 💊 View a request's Response/Error data in a pretty format.
+- 💊 One click access for adding, updating & deleting collections.
+- 💊 Auto-generation of a profile image based on the user's initials.
+- 💊 Appropriate display of loaders, errors and strict validation when necessary.
+- 💊 Intuitive User-Interface design.
+- 💊 Bonus : System generated random quotes to keep developers motivated.
 
 ## Installation requirements.
 
@@ -100,26 +100,26 @@ A screenshot showing the component stories from Storybook
 
 #### Third Party React Web Components
 
-🔹[React-Tooltip](https://www.npmjs.com/package/react-tooltip) : Fancy React Tool-Tips
-🔹[React-UI_Avatar](https://www.npmjs.com/package/react-ui-avatars) : UI avatar generator component.
-🔹[React-JSON-Pretty](https://www.npmjs.com/package/react-json-pretty) : Prettyfies JSON array.
-🔹[Semantic UI React](https://react.semantic-ui.com/) : Component Based Styling library.
-🔹[React Story-Book Console](https://github.com/storybooks/storybook-addon-console) : Storybook Addon to log console data in stories.
-🔹[React Story-Book Knobs](https://www.npmjs.com/package/@storybook/addon-knobs) : To add props to stories dynamically.
+- 🔹[React-Tooltip](https://www.npmjs.com/package/react-tooltip) : Fancy React Tool-Tips
+- 🔹[React-UI_Avatar](https://www.npmjs.com/package/react-ui-avatars) : UI avatar generator component.
+- 🔹[React-JSON-Pretty](https://www.npmjs.com/package/react-json-pretty) : Prettyfies JSON array.
+- 🔹[Semantic UI React](https://react.semantic-ui.com/) : Component Based Styling library.
+- 🔹[React Story-Book Console](https://github.com/storybooks/storybook-addon-console) : Storybook Addon to log console data in stories.
+- 🔹[React Story-Book Knobs](https://www.npmjs.com/package/@storybook/addon-knobs) : To add props to stories dynamically.
 
 #### Third Party Web API's
 
-🔹[Random Programming Quotes](https://quotes.stormconsultancy.co.uk/random.json) : Api to generate random quotes
-🔹[Json-Placeholder](https://api.myjson.com/bins/q7fh2) : Api to create a default collection
+- 🔹[Random Programming Quotes](https://quotes.stormconsultancy.co.uk/random.json) : Api to generate random quotes
+- 🔹[Json-Placeholder](https://api.myjson.com/bins/q7fh2) : Api to create a default collection
 
 ## Routing.
 
-🚂 **/** : Index Route/HomePage of the application 👮 _Public_
-🚂 **/About** : About the application 👮 _Public_
-🚂 **/Dashboard** : User Dashboard after login/registeration. 👮 _Protected_
-🚂 **/:userId/Profile** : User Profile with a parameterised userId. 👮 _Protected_
-🚂 **/Aboutme** : Information of the developer 👮 _Public_
-🚩 If routes doesn't match any of the above routes then you're redirected to a **RouteNotFound** component which displays a 404 Error Page.
+- 🚂 **/** : Index Route/HomePage of the application 👮 _Public_
+- 🚂 **/About** : About the application 👮 _Public_
+- 🚂 **/Dashboard** : User Dashboard after login/registeration. 👮 _Protected_
+- 🚂 **/:userId/Profile** : User Profile with a parameterised userId. 👮 _Protected_
+- 🚂 **/Aboutme** : Information of the developer 👮 _Public_
+- 🚩 If routes doesn't match any of the above routes then you're redirected to a **RouteNotFound** component which displays a 404 Error Page.
 
 ## Extra features
 
