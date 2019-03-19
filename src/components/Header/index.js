@@ -80,7 +80,10 @@ export class Header extends Component {
         </div>
         <div className="rightNav">
           <ul>
-            <li onClick={this.handleHeader}> What is API-PANDA?</li>
+            <li className="custom_cursor" onClick={this.handleHeader}>
+              {' '}
+              What is API-PANDA?
+            </li>
             <li>
               <div>
                 {isLoggedIn ? (

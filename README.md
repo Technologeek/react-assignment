@@ -72,14 +72,56 @@ Application Architecture
 ## App Component Design.
 
 A screenshot showing the component stories from Storybook
+![Component Stories](https://github.com/Technologeek/react-assignment/blob/master/Stories.png)
 
-![][stories]
-
-. . . . Explain any non-standard stories, if necessary . . . . .
+I tried to write stories for as much as components as possible but few of them won't really work well with the UI library
+and my chosen architecture approach. For instance, I don't have any button component which would take props and behave dynamically. My other components which take data from the store as props needed to be exported twice (once in redux's connect and then other manual export) so Storybook finds them. This is not a proper approach since I'm making changes to my code-base so storybook renders data. In Enterprise level appliactions, this can have breaking changes. However, it makes sense to write stories and then develop components alongside, a sort of CDD (Component Driven Development) approach. The ApiDisplay component wouldn't render because storybook needs to access store. I've left that component in Error State in the stories so you can see the incompatability issues.
 
 ## UI Design.
 
-. . . . . Screenshots of app's views (see example below) with appropriate captions (user regeneration and login views, if implemented, can be omitted) . . . . . . .
+The App is tested on Google-Chrome and the CSS is styled according to media-queries : with respect a 13inch monitor (1140px).Mobile responsiveness is not implemented as it's out of the scope for this assignment. Some of the app's screenshots.
+
+- HomePage
+  ![HomePage](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025903/Api-panda/Screenshot_2019-03-19_at_19.44.44.png)
+
+- SignupModal
+  ![SignupModal](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025905/Api-panda/Screenshot_2019-03-19_at_19.45.19.png)
+
+- LoginModal
+  ![LoginModal](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025900/Api-panda/Screenshot_2019-03-19_at_19.45.41.png)
+
+- Dashboard
+  ![Dashboard](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025907/Api-panda/Screenshot_2019-03-19_at_19.48.14.png)
+
+- Collections
+  ![User Collections](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025893/Api-panda/Screenshot_2019-03-19_at_19.55.25.png)
+
+- Create new Collection
+  ![Create Collection](https://res.cloudinary.com/doefdz9w7/image/upload/v1553026385/Api-panda/Screenshot_2019-03-19_at_20.12.15.png)
+
+- Default Collection
+  ![Default Collection](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025903/Api-panda/Screenshot_2019-03-19_at_19.50.47.png)
+
+- ToolTip
+  ![Tool-Tip](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025898/Api-panda/Screenshot_2019-03-19_at_19.51.59.png)
+
+- Request
+  ![Request](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025903/Api-panda/Screenshot_2019-03-19_at_19.50.47.png)
+
+- Accordin View
+  ![Accordin View](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025893/Api-panda/Screenshot_2019-03-19_at_19.55.25.png)
+
+- Form Request
+  ![Response](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025896/Api-panda/Screenshot_2019-03-19_at_19.53.45.png)
+
+- Search
+  ![Search](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025895/Api-panda/Screenshot_2019-03-19_at_19.51.36.png)
+
+- Profile
+  ![Profile](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025893/Api-panda/Screenshot_2019-03-19_at_19.54.11.png)
+
+- AboutMe
+  ![About](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025910/Api-panda/Screenshot_2019-03-19_at_19.54.27.png)
 
 ## Libraries Used
 
