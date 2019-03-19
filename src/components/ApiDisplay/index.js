@@ -14,7 +14,7 @@ const dropDownOptions = [
   { key: 1, text: 'GET', value: 1 },
   { key: 2, text: 'POST', value: 2 },
 ]
-class ApiDisplay extends Component {
+export class ApiDisplay extends Component {
   constructor(props) {
     super(props)
     this.dynamicallySetDiv()

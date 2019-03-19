@@ -1,5 +1,5 @@
 import React from 'react'
-import { storiesOf, setAddon } from '@storybook/react'
+import { storiesOf, setAddon, addDecorator } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 import JSXAddon from 'storybook-addon-jsx'
@@ -130,7 +130,9 @@ const search_results = [
   },
 ]
 storiesOf('Search Bar', module)
-  .add('with default state', props => <SearchBar />)
+  .add('with default state', props => <SearchBar />, {
+    info: 'No Emojis',
+  })
   .add('with list data', props => <SearchBar {...search_results} />)
 
 const updateCollectionProps = {

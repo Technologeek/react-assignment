@@ -31,7 +31,7 @@ To give users a better front-end experience, I've taken into account the number 
 
 ## Installation requirements.
 
-This application is bootstrapped using [Create-React-App](https://github.com/facebook/create-react-app) and uses [Json Server](https://github.com/typicode/json-server) for data persistance.
+This application is bootstrapped using [Create-React-App](https://github.com/facebook/create-react-app) uses [Json Server](https://github.com/typicode/json-server) for data persistance and [FireBase](https://firebase.google.com/) for authentication/session-management.
 
 To run the project locally,
 
