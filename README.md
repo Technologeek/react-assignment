@@ -81,22 +81,22 @@ A screenshot showing the component stories from Storybook
 
 ## Libraries Used
 
--🔹[ReactJs](https://reactjs.org/)
--🔹[Redux](https://redux.js.org/)
--🔹[React-Redux](https://github.com/reduxjs/react-redux)
--🔹[React-Router](https://github.com/ReactTraining/react-router)
--🔹[React-Connected-Router](https://github.com/supasate/connected-react-router) : To keep the routes in-synch with the redux store.
--🔹[Redux-Thunk](https://github.com/reduxjs/redux-thunk)
--🔹[Redux-Persist](https://github.com/rt2zz/redux-persist) : To persist the redux store in the brower's cache storage.
--🔹[React-Storybook](https://github.com/storybooks/storybook)
--🔹[Validator](https://www.npmjs.com/package/validator) : Provides validation utility functions.
--🔹[Prettier](https://github.com/prettier/prettier) : Code formatting.
--🔹[ES-Lint](https://eslint.org/) : Code Linting.
--🔹[Husky](https://github.com/typicode/husky) : Pre-Commit Utility.
--🔹[ES-Lint](https://eslint.org/) : Code Linting.
--🔹[Styled-Components](https://www.styled-components.com/) : CSS in JS based styling liblary.
--🔹[Axios](https://github.com/axios/axios) : Promise based HTTP client.
--🔹[Now.sh](https://www.npmjs.com/package/now) : Deployment Package for node applications.
+- 🔹[ReactJs](https://reactjs.org/)
+- 🔹[Redux](https://redux.js.org/)
+- 🔹[React-Redux](https://github.com/reduxjs/react-redux)
+- 🔹[React-Router](https://github.com/ReactTraining/react-router)
+- 🔹[React-Connected-Router](https://github.com/supasate/connected-react-router) : To keep the routes in-synch with the redux store.
+- 🔹[Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+- 🔹[Redux-Persist](https://github.com/rt2zz/redux-persist) : To persist the redux store in the brower's cache storage.
+- 🔹[React-Storybook](https://github.com/storybooks/storybook)
+- 🔹[Validator](https://www.npmjs.com/package/validator) : Provides validation utility functions.
+- 🔹[Prettier](https://github.com/prettier/prettier) : Code formatting.
+- 🔹[ES-Lint](https://eslint.org/) : Code Linting.
+- 🔹[Husky](https://github.com/typicode/husky) : Pre-Commit Utility.
+- 🔹[ES-Lint](https://eslint.org/) : Code Linting.
+- 🔹[Styled-Components](https://www.styled-components.com/) : CSS in JS based styling liblary.
+- 🔹[Axios](https://github.com/axios/axios) : Promise based HTTP client.
+- 🔹[Now.sh](https://www.npmjs.com/package/now) : Deployment Package for node applications.
 
 #### Third Party React Web Components
 
