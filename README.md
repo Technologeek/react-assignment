@@ -86,7 +86,7 @@ and my chosen architecture approach. For instance, I don't have any button compo
 The App is tested on Google-Chrome and the CSS is styled according to media-queries : with respect a 13inch monitor (1140px).Mobile responsiveness is not implemented as it's out of the scope for this assignment. Some of the app's screenshots.
 
 - HomePage
-  ![HomePage](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025903/Api-panda/Screenshot_2019-03-19_at_19.44.44.png)
+  ![HomePage](https://res.cloudinary.com/doefdz9w7/image/upload/v1553033198/Api-panda/Screenshot_2019-03-19_at_22.06.19.png)
 
 - SignupModal
   ![SignupModal](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025905/Api-panda/Screenshot_2019-03-19_at_19.45.19.png)
