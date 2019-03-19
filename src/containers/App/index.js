@@ -23,8 +23,6 @@ export default function App() {
             <Header />
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route exact path="/Signup" component={ModalRegister} />
-              <Route exact path="/Login" component={ModalLogin} />
               <Route exact path="/Dashboard" component={DashBoard} />
               <Route
                 path="/:userId/Profile"

@@ -3,7 +3,6 @@ import { storiesOf, setAddon } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 import JSXAddon from 'storybook-addon-jsx'
-import { jsxDecorator } from 'storybook-addon-jsx'
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
 
 import { setConsoleOptions } from '@storybook/addon-console'
@@ -16,7 +15,10 @@ import { ModalLogin } from '../src/containers/ModalLogin'
 import CollectionsList from '../src/components/CollectionsList'
 import CollectionsListUser from '../src/components/CollectionsListUser'
 import { NewCollectionModal } from '../src/containers/NewCollectionModal'
-
+import ErrorBoundary from '../src/components/ErrorPage'
+import UrlAccordin from '../src/components/UrlAccordin'
+import SearchBar from '../src/components/SearchBar'
+import UpdateCollectionModal from '../src/components/UpdateCollectionModal'
 setAddon(JSXAddon)
 setConsoleOptions({
   panelExclude: [],
@@ -34,7 +36,7 @@ const headerProps = {
   logOutUser: action('logOut'),
 }
 storiesOf('Header', module)
-  .add('with default buttons', props => <Header />)
+  .addWithJSX('with default buttons', props => <Header />)
   .add('with login buttons', props => <Header {...headerProps} />)
 
 const modalProps = {
@@ -109,4 +111,43 @@ storiesOf('NewCollection Modal', module)
   .add('with default state', props => <NewCollectionModal />)
   .add('with opened state ', props => (
     <NewCollectionModal {...newCollectionProps} />
+  ))
+
+const urlAccordinProps = {
+  title: 'Test List',
+  urlItem: 'https://test@test.com',
+  description: 'Test Data',
+  method: 'GET',
+}
+storiesOf('Accordin', module)
+  .add('with default state', props => <UrlAccordin />)
+  .add('with list data', props => <UrlAccordin {...urlAccordinProps} />)
+
+const search_results = [
+  {
+    name: 'Test',
+  },
+]
+storiesOf('Search Bar', module)
+  .add('with default state', props => <SearchBar />)
+  .add('with list data', props => <SearchBar {...search_results} />)
+
+const updateCollectionProps = {
+  show: true,
+}
+const updateCollectionPropsdata = {
+  show: true,
+  collectionName: 'Collection Name',
+  description: 'Test Data',
+  method: 'GET',
+  url: 'https:test@test.com',
+}
+
+storiesOf('UpdateCollectionModal', module)
+  .add('with default state', props => <UpdateCollectionModal />)
+  .add('with opened state ', props => (
+    <UpdateCollectionModal {...updateCollectionProps} />
+  ))
+  .add('with data state ', props => (
+    <UpdateCollectionModal {...updateCollectionPropsdata} />
   ))

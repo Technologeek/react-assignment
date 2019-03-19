@@ -61,7 +61,7 @@ export default class UrlAccordin extends Component {
             description={this.props.description}
             title={this.props.title}
             method={this.props.method}
-            url={this.props.url}
+            url={this.props.urlItem}
             userId={this.props.userId}
             collectionId={this.props.id}
             getAllUserCollections={this.props.getAllCollections}

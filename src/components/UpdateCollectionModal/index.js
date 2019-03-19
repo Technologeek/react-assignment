@@ -29,6 +29,7 @@ export default class UpdateCollectionModal extends Component {
     this.handler = this.handler.bind(this)
   }
   componentDidMount() {
+    console.log(this.props)
     if (this.props) {
       this.setState({
         collectionName: this.props.title || '',
@@ -62,7 +63,6 @@ export default class UpdateCollectionModal extends Component {
   }
 
   getDropDownValue = event => {
-    console.log('reached')
     event.preventDefault()
     event.stopPropagation()
     this.setState({
@@ -102,6 +102,7 @@ export default class UpdateCollectionModal extends Component {
       console.log(response)
       let id = this.props && this.props.userId
       this.props.getAllUserCollections(id)
+      this.props.onClick()
     })
   }
   render() {
