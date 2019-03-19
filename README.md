@@ -17,17 +17,17 @@ To give users a better front-end experience, I've taken into account the number 
 
 ## Application Features
 
-💊 Create a collection with an URL which will be persisted to a database.
-💊 One-Click access to previous collections.
-💊 One-Click make-request to previous API's.
-💊 Search function to filter the existing collections.
-💊 Perform instant GET/POST requests without creating a collection.
-💊 View a request's Response/Error data in a pretty format.
-💊 One click access for adding, updating & deleting collections.
-💊 Auto-generation of a profile image based on the user's initials.
-💊 Appropriate display of loaders, errors and strict validation when necessary.
-💊 Intuitive User-Interface design.
-💊 Bonus : System generated random quotes to keep developers motivated.
+- 💊 Create a collection with an URL which will be persisted to a database.
+- 💊 One-Click access to previous collections.
+- 💊 One-Click make-request to previous API's.
+- 💊 Search function to filter the existing collections.
+- 💊 Perform instant GET/POST requests without creating a collection.
+- 💊 View a request's Response/Error data in a pretty format.
+- 💊 One click access for adding, updating & deleting collections.
+- 💊 Auto-generation of a profile image based on the user's initials.
+- 💊 Appropriate display of loaders, errors and strict validation when necessary.
+- 💊 Intuitive User-Interface design.
+- 💊 Bonus : System generated random quotes to keep developers motivated.
 
 ## Installation requirements.
 
@@ -81,45 +81,45 @@ A screenshot showing the component stories from Storybook
 
 ## Libraries Used
 
-🔹[ReactJs](https://reactjs.org/)
-🔹[Redux](https://redux.js.org/)
-🔹[React-Redux](https://github.com/reduxjs/react-redux)
-🔹[React-Router](https://github.com/ReactTraining/react-router)
-🔹[React-Connected-Router](https://github.com/supasate/connected-react-router) : To keep the routes in-synch with the redux store.
-🔹[Redux-Thunk](https://github.com/reduxjs/redux-thunk)
-🔹[Redux-Persist](https://github.com/rt2zz/redux-persist) : To persist the redux store in the brower's cache storage.
-🔹[React-Storybook](https://github.com/storybooks/storybook)
-🔹[Validator](https://www.npmjs.com/package/validator) : Provides validation utility functions.
-🔹[Prettier](https://github.com/prettier/prettier) : Code formatting.
-🔹[ES-Lint](https://eslint.org/) : Code Linting.
-🔹[Husky](https://github.com/typicode/husky) : Pre-Commit Utility.
-🔹[ES-Lint](https://eslint.org/) : Code Linting.
-🔹[Styled-Components](https://www.styled-components.com/) : CSS in JS based styling liblary.
-🔹[Axios](https://github.com/axios/axios) : Promise based HTTP client.
-🔹[Now.sh](https://www.npmjs.com/package/now) : Deployment Package for node applications.
+- 🔹[ReactJs](https://reactjs.org/)
+- 🔹[Redux](https://redux.js.org/)
+- 🔹[React-Redux](https://github.com/reduxjs/react-redux)
+- 🔹[React-Router](https://github.com/ReactTraining/react-router)
+- 🔹[React-Connected-Router](https://github.com/supasate/connected-react-router) : To keep the routes in-synch with the redux store.
+- 🔹[Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+- 🔹[Redux-Persist](https://github.com/rt2zz/redux-persist) : To persist the redux store in the brower's cache storage.
+- 🔹[React-Storybook](https://github.com/storybooks/storybook)
+- 🔹[Validator](https://www.npmjs.com/package/validator) : Provides validation utility functions.
+- 🔹[Prettier](https://github.com/prettier/prettier) : Code formatting.
+- 🔹[ES-Lint](https://eslint.org/) : Code Linting.
+- 🔹[Husky](https://github.com/typicode/husky) : Pre-Commit Utility.
+- 🔹[ES-Lint](https://eslint.org/) : Code Linting.
+- 🔹[Styled-Components](https://www.styled-components.com/) : CSS in JS based styling liblary.
+- 🔹[Axios](https://github.com/axios/axios) : Promise based HTTP client.
+- 🔹[Now.sh](https://www.npmjs.com/package/now) : Deployment Package for node applications.
 
 #### Third Party React Web Components
 
-🔹[React-Tooltip](https://www.npmjs.com/package/react-tooltip) : Fancy React Tool-Tips
-🔹[React-UI_Avatar](https://www.npmjs.com/package/react-ui-avatars) : UI avatar generator component.
-🔹[React-JSON-Pretty](https://www.npmjs.com/package/react-json-pretty) : Prettyfies JSON array.
-🔹[Semantic UI React](https://react.semantic-ui.com/) : Component Based Styling library.
-🔹[React Story-Book Console](https://github.com/storybooks/storybook-addon-console) : Storybook Addon to log console data in stories.
-🔹[React Story-Book Knobs](https://www.npmjs.com/package/@storybook/addon-knobs) : To add props to stories dynamically.
+- 🔹[React-Tooltip](https://www.npmjs.com/package/react-tooltip) : Fancy React Tool-Tips
+- 🔹[React-UI_Avatar](https://www.npmjs.com/package/react-ui-avatars) : UI avatar generator component.
+- 🔹[React-JSON-Pretty](https://www.npmjs.com/package/react-json-pretty) : Prettyfies JSON array.
+- 🔹[Semantic UI React](https://react.semantic-ui.com/) : Component Based Styling library.
+- 🔹[React Story-Book Console](https://github.com/storybooks/storybook-addon-console) : Storybook Addon to log console data in stories.
+- 🔹[React Story-Book Knobs](https://www.npmjs.com/package/@storybook/addon-knobs) : To add props to stories dynamically.
 
 #### Third Party Web API's
 
-🔹[Random Programming Quotes](https://quotes.stormconsultancy.co.uk/random.json) : Api to generate random quotes
-🔹[Json-Placeholder](https://api.myjson.com/bins/q7fh2) : Api to create a default collection
+- 🔹[Random Programming Quotes](https://quotes.stormconsultancy.co.uk/random.json) : Api to generate random quotes
+- 🔹[Json-Placeholder](https://api.myjson.com/bins/q7fh2) : Api to create a default collection
 
 ## Routing.
 
-🚂 **/** : Index Route/HomePage of the application 👮 _Public_
-🚂 **/About** : About the application 👮 _Public_
-🚂 **/Dashboard** : User Dashboard after login/registeration. 👮 _Protected_
-🚂 **/:userId/Profile** : User Profile with a parameterised userId. 👮 _Protected_
-🚂 **/Aboutme** : Information of the developer 👮 _Public_
-🚩 If routes doesn't match any of the above routes then you're redirected to a **RouteNotFound** component which displays a 404 Error Page.
+- 🚂 **/** : Index Route/HomePage of the application 👮 _Public_
+- 🚂 **/About** : About the application 👮 _Public_
+- 🚂 **/Dashboard** : User Dashboard after login/registeration. 👮 _Protected_
+- 🚂 **/:userId/Profile** : User Profile with a parameterised userId. 👮 _Protected_
+- 🚂 **/Aboutme** : Information of the developer 👮 _Public_
+- 🚩 If routes doesn't match any of the above routes then you're redirected to a **RouteNotFound** component which displays a 404 Error Page.
 
 ## Extra features
 
@@ -139,6 +139,8 @@ A screenshot showing the component stories from Storybook
 - 💡 To demonstrate React-Hooks, I've created a Quote component which uses a useState and a custom Hook to fetch & set the data. (I still prefer the good'ol classes)
 - 💡 I've added type & value checking wherever possible so the component doesn't break if it gets a null or undefined.
 - 💡 Whenever it comes to using third party liblaries, I prefer avoiding them and writing my own utilities if the requirement is not too broad. For instance, instead of using react-form/redux-form, I write my own validations because it doesn't make sense to introduce a big package into your app just to validate a few inputs. Maybe developers disagree with it but being an avid JavaScript developer, I like to have more control over my code.
+
+. . . . . State the non-standard aspects of React (or other related technologies) that you researched and applied in this assignment . . . . .
 
 [model]: ./data.jpg
 [image3]: ./screen.png
