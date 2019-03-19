@@ -9,6 +9,8 @@ import DashBoard from '../../containers/Dashboard'
 import history from '../../utils/history'
 import RouteNotFound from '../../components/RouteNotFound'
 import ProfilePage from '../../containers/ProfilePage'
+import AboutPage from '../../components/AboutPage'
+import AboutMe from '../../components/AboutMe'
 import 'semantic-ui-css/semantic.min.css'
 import ErrorBoundary from '../../components/ErrorPage'
 
@@ -28,6 +30,8 @@ export default function App() {
                 path="/:userId/Profile"
                 render={props => <ProfilePage {...props} />}
               />
+              <Route exact path="/About" component={AboutPage} />
+              <Route exact path="/AboutMe" component={AboutMe} />
               <Route component={RouteNotFound} />
             </Switch>
             <Footer />
