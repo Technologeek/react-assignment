@@ -20,7 +20,6 @@ export default class CollectionsList extends PureComponent {
   }
 
   render() {
-    console.log(this.props)
     let getAllCollections = this.props && this.props.getAllCollections
     let getUrlDataForResponse = this.props && this.props.getUrlDataForResponse
     let userId = this.props && this.props.userId

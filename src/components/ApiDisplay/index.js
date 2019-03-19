@@ -79,7 +79,6 @@ export class ApiDisplay extends Component {
   }
 
   dynamicallySetDiv = () => {
-    console.log(this.props.reqdata.flag)
     let showDynamicgetDiv = Object.keys(this.props.reqdata).length !== 0
     if (showDynamicgetDiv) {
       this.setState({
