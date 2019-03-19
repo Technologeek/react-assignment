@@ -65,7 +65,7 @@ To run the project locally,
 
 Application Architecture
 
-![Component & Architecture Model][https://github.com/technologeek/react-assignment/blob/master/application%20architecture.png?raw=true]
+![Component & Architecture Model](https://github.com/technologeek/react-assignment/blob/master/application%20architecture.png?raw=true)
 
 ## App Component Design.
 
