@@ -27,7 +27,7 @@ export default class CollectionsList extends Component {
     })
   }
   componentDidMount() {
-    let url = 'https://api.myjson.com/bins/p9i3m'
+    let url = 'https://api.myjson.com/bins/chyw2'
     axios.get(url).then(response => {
       this.setState({
         defaltCollection: response.data.collection,
@@ -50,6 +50,7 @@ export default class CollectionsList extends Component {
             urlItem={urlItem}
             method={method}
             makeRequest={this.props.makeRequest}
+            key={collection.name}
           />
         )
       })

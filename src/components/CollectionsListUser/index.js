@@ -61,6 +61,7 @@ export default class CollectionsList extends PureComponent {
                       getUrlDataForResponse={getUrlDataForResponse}
                       userId={userId}
                       makeRequest={this.props.makeRequest}
+                      key={collections.id}
                     />
                   )
                 })}

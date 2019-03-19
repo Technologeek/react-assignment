@@ -3,10 +3,8 @@ import { FooterContainer } from './style'
 import { Link } from 'react-router-dom'
 const Footer = () => (
   <FooterContainer>
-    <ul>
-      <li>
-        <Link to="/">What is </Link>
-      </li>
+    <ul className="padding">
+      <li />
       <li>
         <a href="https://restfulapi.net/" target="_blank">
           REST-API Help

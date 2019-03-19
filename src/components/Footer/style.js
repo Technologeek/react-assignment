@@ -9,6 +9,9 @@ const FooterContainer = styled.footer`
   @media (min-width: ${globalStyle.small}) {
     height: 48px;
   }
+  .padding {
+    margin-left: 500px !important;
+  }
   ul {
     list-style: none;
     margin: 0px;
@@ -46,7 +49,7 @@ const FooterContainer = styled.footer`
       a {
         font-size: 14px;
         text-decoration: none;
-        color: rgba(255, 255, 255, 0.3);
+        color: rgb(254, 254, 254);
       }
     }
   }
