@@ -5,13 +5,15 @@ const Footer = () => (
   <FooterContainer>
     <ul>
       <li>
-        <Link to="/">Terms & Conditions</Link>
+        <Link to="/">What is </Link>
       </li>
       <li>
-        <Link to="/">RESTFUL API Help</Link>
+        <a href="https://restfulapi.net/" target="_blank">
+          REST-API Help
+        </a>
       </li>
       <li>
-        <Link to="/">About Me</Link>
+        <Link to="/AboutMe">About Me</Link>
       </li>
     </ul>
   </FooterContainer>

@@ -19,6 +19,7 @@ import ErrorBoundary from '../src/components/ErrorPage'
 import UrlAccordin from '../src/components/UrlAccordin'
 import SearchBar from '../src/components/SearchBar'
 import UpdateCollectionModal from '../src/components/UpdateCollectionModal'
+import ApiDisplay from '../src/components/ApiDisplay'
 setAddon(JSXAddon)
 setConsoleOptions({
   panelExclude: [],
@@ -151,3 +152,34 @@ storiesOf('UpdateCollectionModal', module)
   .add('with data state ', props => (
     <UpdateCollectionModal {...updateCollectionPropsdata} />
   ))
+const requestState = {
+  reqdata: [
+    {
+      body: null,
+      createdAt: '2019-03-13T15:52:44.000Z',
+      id: 17,
+      method: 'GET',
+      response: '17',
+      updatedAt: '2019-03-13T15:52:44.000Z',
+      url: 'http://10.88.10.101/ION-M_V5.30.0/images/ionb/device18-6-5.gif',
+    },
+  ],
+}
+
+const errorData = {
+  error: [
+    {
+      body: null,
+      createdAt: '2019-03-13T15:52:44.000Z',
+      id: 17,
+      method: 'GET',
+      response: '17',
+      updatedAt: '2019-03-13T15:52:44.000Z',
+      url: 'http://10.88.10.101/ION-M_V5.30.0/images/ionb/device18-6-5.gif',
+    },
+  ],
+}
+storiesOf('ApiDisplay', module)
+  .add('with default state', props => <ApiDisplay />)
+  .add('with data  state ', props => <ApiDisplay {...requestState} />)
+  .add('with error state ', props => <ApiDisplay {...errorData} />)
