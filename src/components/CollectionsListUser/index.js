@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { CollectionListWrapper } from './style'
 import { Container, Grid, Card, Icon, Image } from 'semantic-ui-react'
 import UrlAccordin from '../UrlAccordin'
@@ -9,7 +9,7 @@ import axios from 'axios'
 import SearchBar from '../SearchBar'
 import PropTypes from 'prop-types'
 
-export default class CollectionsList extends Component {
+export default class CollectionsList extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
