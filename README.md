@@ -183,9 +183,7 @@ The App is tested on Google-Chrome and the CSS is styled according to media-quer
 - 💡 To demonstrate React-Hooks, I've created a Quote component which uses a useState and a custom Hook to fetch & set the data. (I still prefer the good'ol classes)
 - 💡 I've added type & value checking wherever possible so the component doesn't break if it gets a null or undefined.
 - 💡 Whenever it comes to using third party libraries, I prefer avoiding them and writing my own utilities if the requirement is not too broad. For instance, instead of using react-form/redux-form, I write my own validations because it doesn't make sense to introduce a big package into your app just to validate a few inputs. Maybe developers disagree with it but being an avid JavaScript developer, I like to have more control over my code.
-- 💡 I've also added <StrictMode> in couple of my components which throws errors if the legacy methods and other anti-patterns are used in the application. They just run in the development mode so it's nice to have additional strict type checking along with props validation.
-
-. . . . . State the non-standard aspects of React (or other related technologies) that you researched and applied in this assignment . . . . .
+- 💡 I've also added StrictMode in couple of my components which throws errors if the legacy methods and other anti-patterns are used in the application. They just run in the development mode so it's nice to have additional strict type checking along with props validation.
 
 [model]: ./data.jpg
 [image3]: ./screen.png

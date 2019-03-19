@@ -94,8 +94,8 @@ export class ApiDisplay extends Component {
       })
     }
   }
+
   handleFormSubmit = event => {
-    console.log(this.input)
     const { method, key, url, value, body, contentType } = this.state
     event.preventDefault()
     event.stopPropagation()
