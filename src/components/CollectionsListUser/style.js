@@ -5,6 +5,7 @@ const CollectionListWrapper = styled.div`
   ${globalStyle.flex};
   ${globalStyle.flexCenter};
   ${globalStyle.alignItemCenter};
+  padding-top: 20px;
   .custom_width {
     width: 100px !important;
     margin-left: 43px;
@@ -15,6 +16,9 @@ const CollectionListWrapper = styled.div`
   }
   .custom_color {
     color: #ff5006bf !important;
+  }
+  .cell_width {
+    width: 100% !important;
   }
 `
 

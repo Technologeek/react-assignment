@@ -1,13 +1,15 @@
 import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
 import './style.css'
+import panda from '../../static/panda.png'
+import welcome from '../../static/welcome.png'
 
 const AboutPage = () => {
   return (
     <Grid celled="internally" className="custom_cell">
       <Grid.Row>
         <Grid.Column width={3}>
-          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          <Image src={panda} />
         </Grid.Column>
         <Grid.Column width={10}>
           <p>What is API-PANDA?</p>
@@ -27,13 +29,13 @@ const AboutPage = () => {
           </p>
         </Grid.Column>
         <Grid.Column width={3}>
-          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          <Image src={welcome} />
         </Grid.Column>
       </Grid.Row>
 
       <Grid.Row>
         <Grid.Column width={3}>
-          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          <Image src={welcome} />
         </Grid.Column>
         <Grid.Column width={10}>
           <p>Under the Hood!</p>
@@ -51,7 +53,7 @@ const AboutPage = () => {
           </p>
         </Grid.Column>
         <Grid.Column width={3}>
-          <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          <Image src={panda} />
         </Grid.Column>
       </Grid.Row>
     </Grid>

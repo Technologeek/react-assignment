@@ -43,6 +43,9 @@ export class Header extends Component {
   redirect = () => {
     history.push('/not')
   }
+  handleHeader = () => {
+    history.push('./AboutPage')
+  }
 
   render() {
     let userId = this.props && this.props.userId
@@ -77,7 +80,7 @@ export class Header extends Component {
         </div>
         <div className="rightNav">
           <ul>
-            <li>{/* <Link to="/about"> What is API-PANDA?</Link> */}</li>
+            <li onClick={this.handleHeader}> What is API-PANDA?</li>
             <li>
               <div>
                 {isLoggedIn ? (

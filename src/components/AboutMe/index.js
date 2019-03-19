@@ -2,12 +2,13 @@ import React from 'react'
 import { Grid, Image, Label, Icon, Item } from 'semantic-ui-react'
 import './style.css'
 import cat from '../../static/Octocat.png'
+import myself from '../../static/myself.jpg'
 
 const AboutMe = () => {
   return (
     <Grid className="custom_cell">
       <Grid.Column width={4}>
-        <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+        <Image src={myself} />
       </Grid.Column>
       <Grid.Column width={9}>
         <Item>
@@ -35,4 +36,4 @@ const AboutMe = () => {
     </Grid>
   )
 }
-export default AboutPage
+export default AboutMe

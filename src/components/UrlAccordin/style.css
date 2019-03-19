@@ -26,6 +26,7 @@
   margin-left: 0px;
   border-bottom: 1px solid #c3c1c3;
   color: #ff0029;
+  cursor: pointer;
 }
 .method_item {
   color: #009688 !important;
@@ -37,5 +38,5 @@
   color: red;
 }
 .icon_margin {
-  margin-left: 100px;
+  margin-left: 210px;
 }

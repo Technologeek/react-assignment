@@ -26,7 +26,7 @@ export default class CollectionsList extends PureComponent {
     let userId = this.props && this.props.userId
     return (
       <CollectionListWrapper>
-        <Card>
+        <Card className="cell_width">
           <Card.Content>
             <Card.Header className="set_color">Your Collections</Card.Header>
             <Card.Meta>

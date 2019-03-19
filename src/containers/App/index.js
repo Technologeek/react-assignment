@@ -30,7 +30,7 @@ export default function App() {
                 path="/:userId/Profile"
                 render={props => <ProfilePage {...props} />}
               />
-              <Route exact path="/About" component={AboutPage} />
+              <Route exact path="/AboutPage" component={AboutPage} />
               <Route exact path="/AboutMe" component={AboutMe} />
               <Route component={RouteNotFound} />
             </Switch>

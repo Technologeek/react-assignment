@@ -66,7 +66,7 @@ export default class CollectionsList extends Component {
               onClick={this.handleSignupModalClose}
             />
           ) : null}
-          <Card>
+          <Card className="cell_width">
             <Card.Content>
               <Card.Header className="set_color">
                 Default Collection

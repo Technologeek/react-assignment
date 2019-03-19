@@ -22,6 +22,9 @@ const CollectionListWrapper = styled.div`
   .new_color {
     color: #ff262f;
   }
+  .cell_width {
+    width: 100% !important;
+  }
 `
 
 export { CollectionListWrapper }
