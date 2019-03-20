@@ -33,9 +33,9 @@ To give users a better front-end experience, I've taken into account the number 
 
 This application is bootstrapped using [Create-React-App](https://github.com/facebook/create-react-app) uses [Json Server](https://github.com/typicode/json-server) for data persistance and [FireBase](https://firebase.google.com/) for authentication/session-management.
 
-> Note : The project deployed live uses a back-end which is also deployed on AWS cloud. Meaning, the JSON-server is deployed on AWS instance which can be accessed both locally and on the live version. The EC2 Server URL is http://ec2-18-203-87-253.eu-west-1.compute.amazonaws.com:3000/users
+> Note : The project deployed live uses a back-end which is also deployed on AWS cloud. Meaning, the JSON-server is deployed on AWS instance which can be accessed both locally and on the live version. The EC2 Server URL is http://ec2-18-203-87-253.eu-west-1.compute.amazonaws.com:3000/users [Due to CORS & SSL browser policies, this had to be replaced.]
 
-The Live Project URL is : https://api-panda-le1pp5ep8.now.sh/ [Might Be Updated Later]
+The Live Project URL is : https://api-panda-b0ij90v13.now.sh/ [Might Be Updated Later]
 
 To run the project locally,
 
@@ -86,7 +86,7 @@ and my chosen architecture approach. For instance, I don't have any button compo
 The App is tested on Google-Chrome and the CSS is styled according to media-queries : with respect a 13inch monitor (1140px).Mobile responsiveness is not implemented as it's out of the scope for this assignment. Some of the app's screenshots.
 
 - HomePage
-  ![HomePage](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025903/Api-panda/Screenshot_2019-03-19_at_19.44.44.png)
+  ![HomePage](https://res.cloudinary.com/doefdz9w7/image/upload/v1553033198/Api-panda/Screenshot_2019-03-19_at_22.06.19.png)
 
 - SignupModal
   ![SignupModal](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025905/Api-panda/Screenshot_2019-03-19_at_19.45.19.png)
