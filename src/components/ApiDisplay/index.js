@@ -110,7 +110,7 @@ export class ApiDisplay extends Component {
     }
     if (method === 'GET') {
       axios
-        .get(url, {
+        .get(`https://cors-anywhere.herokuapp.com/${url}`, {
           headers: {
             'Content-Type': contentType || 'application/json',
             'Access-Control-Allow-Origin': 'http://localhost:3000',
@@ -137,7 +137,7 @@ export class ApiDisplay extends Component {
       dataToSend[dynamicKey] = value
       console.log(dataToSend)
       axios
-        .post(url, dataToSend, {
+        .post(`https://cors-anywhere.herokuapp.com/${url}`, dataToSend, {
           headers: {
             'Content-Type': contentType || 'application/json',
           },
