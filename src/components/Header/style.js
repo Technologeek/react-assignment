@@ -16,6 +16,9 @@ const HeaderContainer = styled.header`
   .fitimage {
     width: 160px;
   }
+  .loggedIn {
+    cursor: pointer;
+  }
   .custom_cursor {
     cursor: pointer;
   }

@@ -70,11 +70,23 @@ export class Header extends Component {
 
         <div className="leftNav">
           <div className="log">
-            <img
-              className="fitimage"
-              src="https://i.imgur.com/oSOW0jh.png"
-              alt=""
-            />
+            {isLoggedIn ? (
+              <img
+                className="fitimage loggedIn"
+                src="https://i.imgur.com/oSOW0jh.png"
+                alt="Home"
+                onClick={() => {
+                  history.push('/Dashboard')
+                }}
+              />
+            ) : (
+              <img
+                className="fitimage"
+                src="https://i.imgur.com/oSOW0jh.png"
+                alt=""
+              />
+            )}
+
             <img src={logo} alt="" />
           </div>
         </div>
