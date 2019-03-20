@@ -45,7 +45,7 @@ export function sendUrlResponse(...data) {
   return (dispatch, getState) => {
     if (method === 'GET') {
       return axios
-        .get(url, {
+        .get(`https://cors-anywhere.herokuapp.com/${url}`, {
           headers: {
             'Content-Type': contentType || 'application/json',
             'Access-Control-Allow-Origin': 'http://localhost:3000',
