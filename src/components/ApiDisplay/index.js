@@ -137,7 +137,7 @@ export class ApiDisplay extends Component {
       dataToSend[dynamicKey] = value
       console.log(dataToSend)
       axios
-        .post(`https://cors-anywhere.herokuapp.com/${url}`, dataToSend, {
+        .post(url, dataToSend, {
           headers: {
             'Content-Type': contentType || 'application/json',
           },
