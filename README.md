@@ -35,7 +35,7 @@ This application is bootstrapped using [Create-React-App](https://github.com/fac
 
 > Note : The project deployed live uses a back-end which is also deployed on AWS cloud. Meaning, the JSON-server is deployed on AWS instance which can be accessed both locally and on the live version. The EC2 Server URL is http://ec2-18-203-87-253.eu-west-1.compute.amazonaws.com:3000/users [Due to CORS & SSL browser policies, this had to be replaced.]
 
-The Live Project URL is : https://api-panda-c3qy1bwfe.now.sh/ [Might Be Updated Later]
+The Live Project URL is : https://api-pand-8e5jefab1.now.sh [Might Be Updated Later]
 
 To run the project locally,
 
