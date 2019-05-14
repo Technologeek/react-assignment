@@ -1,7 +1,6 @@
 import {
   USER_LOGGEDIN,
   REGISTER_NEW_USER,
-  REGISTER_NEW_USER_DATABSE,
   LOGIN_NEW_USER_DATABSE,
   LOGOUT_USER,
   SHOW_LOADING_ICON,
@@ -36,51 +35,27 @@ export function loginUser({ email, password }) {
     }
   }
 }
-export function registerNewUser({ email, password }) {
-  return (dispatch, getState, { api, setAuthorizationToken }) => {
-    dispatch(showLoadingIcon())
-    return firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(response => {
-        dispatch(hideLoadingIcon())
-        dispatch({
-          type: REGISTER_NEW_USER,
-          payload: response.user,
-        })
-        dispatch(resetErrors())
-      })
-      .catch(error => {
-        dispatch(hideLoadingIcon())
-        const errorMessage = 'User Already Registered/Put Valid Data'
-        dispatch(showBackendError(errorMessage))
-      })
-  }
-}
 
-export function registerNewUserDatabse(userData) {
-  const url = `${process.env.REACT_APP_JSON_BASE_URL}users`
+export function registerNewUser(userData) {
+  const url = `${process.env.REACT_APP_BACKEND_URL}/auth/signup`
   return (dispatch, getState) => {
     return axios
       .post(url, userData)
       .then(response => {
-        console.log(response.data.id)
-        dispatch({
-          type: REGISTER_NEW_USER_DATABSE,
-          payload: response.data.id,
-        })
+        if (response.status && response.status === 200) {
+          console.log(response.data)
+          dispatch({
+            type: REGISTER_NEW_USER,
+            payload: response.data,
+          })
+          localStorage.setItem('userId', response.data && response.data.userId)
+          localStorage.setItem('token', response.data && response.data.token)
+        }
       })
       .catch(error => {
-        const errorMessage = 'Something went wrong.Please try again.'
-        // const errorObjectWithMessage = {
-        //   ...error,
-        //   errorMessage: error.response.data.error
-        //     ? error.response.data
-        //     : {
-        //         error: [errorMessage],
-        //       },
-        // };
-        // dispatch(showBackendError(errorObjectWithMessage.errorMessage));
+        const errorMessage =
+          'Please Follow the Password Rules and use an unique username to Sign-up'
+        dispatch(showBackendError(errorMessage))
       })
   }
 }
@@ -94,7 +69,7 @@ export function loginNewUserDatabse(email) {
       .then(response => {
         if (response.data) dispatch(showLoadingIcon())
         dispatch({
-          type: LOGIN_NEW_USER_DATABSE,
+          type: USER_LOGGEDIN,
           payload: response.data[0].id,
         })
         //dispatch(resetErrors());

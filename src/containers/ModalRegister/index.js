@@ -76,21 +76,21 @@ export class ModalRegister extends Component {
     const dataTosend = {
       username: username,
       email: email,
+      password: password,
     }
-    this.props.registerNewUser({ email, password })
-    this.props.registerNewUserDatabse(dataTosend)
+    this.props.registerNewUser(dataTosend)
   }
   render() {
-    console.log(this.props.loader)
+    console.log(this.props.error)
     if (this.props.user) {
-      if (Object.keys(this.props.user).length !== 0 && this.props.userId) {
+      if (Object.keys(this.props.user).length !== 0 && this.props.user.userId) {
         history.push('/Dashboard')
         this.props.onClick()
       }
     }
     const { errors, passwordError } = this.state
-    const backEndError = this.props.error
     let passwordErrorMessage = ''
+    let userNameError = this.props.error
     if (passwordError) passwordErrorMessage = "Passwords Don't Match"
     else passwordErrorMessage = ''
     return (
@@ -110,8 +110,8 @@ export class ModalRegister extends Component {
             </div>
             <h3>Register</h3>
             <div className="modal-register__form">
-              {backEndError ? (
-                <ul className="err-message">{backEndError}</ul>
+              {userNameError ? (
+                <ul className="err-message">{userNameError}</ul>
               ) : null}
               <div className="input-field">
                 <div className="form-group">

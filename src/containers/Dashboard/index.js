@@ -21,6 +21,7 @@ class DashBoard extends Component {
     }
   }
   render() {
+    console.log(this.props.user)
     const isLoggedIn = Object.keys(this.props.user).length !== 0
     if (!isLoggedIn) {
       history.push('/')

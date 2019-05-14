@@ -51,8 +51,8 @@ class Validations {
       case 'confirmpassword':
         if (fieldValue.indexOf(' ') !== -1) {
           this.errors[fieldName] = 'Spaces are not allowed in the password'
-        } else if (fieldValue.length < 6) {
-          this.errors[fieldName] = 'Minimum 6 characters password is allowed'
+        } else if (fieldValue.length < 8) {
+          this.errors[fieldName] = 'Minimum 8 characters password is allowed'
         } else {
           this.errors[fieldName] = null
         }
