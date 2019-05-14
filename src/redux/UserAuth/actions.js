@@ -92,30 +92,15 @@ export function loginNewUserDatabse(email) {
 
 export function logoutUser() {
   return (dispatch, getState) => {
-    firebase
-      .auth()
-      .signOut()
-      .then(response => {
-        dispatch({
-          type: LOGOUT_USER,
-          payload: response,
-        })
-        console.log(response.user)
-        //dispatch(resetErrors())
-      })
-      .catch(error => {
-        //dispatch(showLoadingIcon())
-        const errorMessage = 'Something went wrong.Please try again.'
-        // const errorObjectWithMessage = {
-        //   ...error,
-        //   errorMessage: error.response.data.error
-        //     ? error.response.data
-        //     : {
-        //         error: [errorMessage],
-        //       },
-        // }
-        //dispatch(showBackendError(errorObjectWithMessage.errorMessage))
-      })
+    localStorage.removeItem('userId')
+    localStorage.removeItem('token')
+    dispatch({
+      type: LOGOUT_USER,
+      payload: '',
+    }).catch(error => {
+      dispatch(showLoadingIcon())
+      const errorMessage = 'Something went wrong.Please try again.'
+    })
   }
 }
 

@@ -66,6 +66,8 @@ export class NewCollectionModal extends Component {
     event.preventDefault()
     event.stopPropagation()
     const { url, description, collectionName } = this.state
+    let userId = localStorage.getItem('userId')
+    let token = localStorage.getItem('token')
     let errors = null
     this.state.fields.forEach(field => {
       let fieldValue = this.state[field]
@@ -77,20 +79,23 @@ export class NewCollectionModal extends Component {
     if (!this.validations.allNullKeyValue(errors)) return false
     const { method } = this.state
     const dataTosend = {
-      name: collectionName,
+      collectionname: collectionName,
       description: description,
       method: method,
       url: url,
+      user_id: userId,
     }
-    let id = this.props && this.props.userId
+    let auth = {
+      headers: { Authorization: 'Bearer ' + token },
+    }
+    console.log(userId)
     let postUrl = `${
-      process.env.REACT_APP_JSON_BASE_URL
-    }users/${id}/collections`
+      process.env.REACT_APP_BACKEND_URL
+    }/users/${userId}/collections`
 
-    axios.post(postUrl, dataTosend).then(response => {
+    axios.post(postUrl, dataTosend, auth).then(response => {
       console.log(response)
-      let id = this.props && this.props.userId
-      this.props.getAllUserCollections(id)
+      this.props.getAllUserCollections(userId)
     })
   }
   render() {

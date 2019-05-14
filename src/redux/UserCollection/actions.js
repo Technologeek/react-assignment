@@ -11,10 +11,14 @@ import {
 import axios from 'axios'
 
 export function getAllUserCollections(id) {
-  let url = `${process.env.REACT_APP_JSON_BASE_URL}users/${id}/collections`
+  let url = `${process.env.REACT_APP_BACKEND_URL}/users/${id}/collections`
+  let token = localStorage.getItem('token')
+  let auth = {
+    headers: { Authorization: 'Bearer ' + token },
+  }
   return (dispatch, getState) => {
     return axios
-      .get(url)
+      .get(url, auth)
       .then(response => {
         dispatch({
           type: ALL_USER_COLLECTIONS,

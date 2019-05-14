@@ -51,8 +51,8 @@ export default class CollectionsList extends PureComponent {
                   console.log(collections)
                   return (
                     <UrlAccordin
-                      id={collections.id}
-                      title={collections.name}
+                      id={collections._id}
+                      title={collections.collectionname}
                       description={collections.description}
                       urlItem={collections.url}
                       method={collections.method}

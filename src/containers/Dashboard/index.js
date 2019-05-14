@@ -14,10 +14,9 @@ import './style.css'
 class DashBoard extends Component {
   componentDidMount() {
     console.log(this.props)
-    let id = this.props && this.props.userId
-    console.log(id)
-    if (this.props && this.props.userId) {
-      this.props.getAllUserCollections(id)
+    let userId = localStorage.getItem('userId')
+    if (userId !== null) {
+      this.props.getAllUserCollections(userId)
     }
   }
   render() {
