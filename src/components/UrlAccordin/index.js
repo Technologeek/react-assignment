@@ -35,11 +35,16 @@ export default class UrlAccordin extends Component {
 
   deleteCollection(collectionId) {
     collectionId = this.props.id
+    let token = localStorage.getItem('token')
+    let userId = localStorage.getItem('userId')
+    let auth = {
+      headers: { Authorization: 'Bearer ' + token },
+    }
     let deleteUrl = `${
-      process.env.REACT_APP_JSON_BASE_URL
-    }collections/${collectionId}`
-    axios.delete(deleteUrl).then(response => {
-      this.props.getAllCollections(this.props.userId)
+      process.env.REACT_APP_BACKEND_URL
+    }/collections/${collectionId}`
+    axios.delete(deleteUrl, auth).then(response => {
+      this.props.getAllCollections(userId)
     })
   }
   handleUrlClick = event => {

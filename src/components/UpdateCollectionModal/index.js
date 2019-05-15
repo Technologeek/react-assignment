@@ -86,30 +86,30 @@ export default class UpdateCollectionModal extends Component {
     const { method } = this.state
     let userIdToSend = this.props && this.props.userId
     const dataTosend = {
-      name: collectionName,
+      collectionname: collectionName,
       description: description,
       method: method,
       url: url,
       userId: userIdToSend,
     }
     let collectionID = this.props && this.props.collectionId
-    console.log(collectionID)
+    let token = localStorage.getItem('token')
+    let auth = {
+      headers: { Authorization: 'Bearer ' + token },
+    }
     let updateUrl = `${
-      process.env.REACT_APP_JSON_BASE_URL
-    }collections/${collectionID}`
+      process.env.REACT_APP_BACKEND_URL
+    }/collections/${collectionID}`
 
-    axios.put(updateUrl, dataTosend).then(response => {
-      console.log(response)
-      let id = this.props && this.props.userId
-      this.props.getAllUserCollections(id)
+    axios.put(updateUrl, dataTosend, auth).then(response => {
+      let userId = localStorage.getItem('userId')
+      this.props.getAllUserCollections(userId)
       this.props.onClick()
     })
   }
   render() {
-    console.log(this.props && this.props.collectionId)
     const { url, description, errors } = this.state
     const { method } = this.state
-    console.log(this.props)
     const backEndError = this.props.error
     return (
       <StrictMode>

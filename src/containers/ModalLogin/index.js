@@ -65,15 +65,16 @@ export class ModalLogin extends Component {
   }
 
   render() {
-    console.log(this.props)
     if (this.props.user) {
-      if (Object.keys(this.props.user).length !== 0 && this.props.userId) {
+      if (
+        Object.keys(this.props.user).length !== 0 &&
+        this.props.user.user_id
+      ) {
         history.push('/Dashboard')
         this.props.onClick()
       }
     }
     const { errors, passwordError } = this.state
-    console.log(this.props.error)
     const backEndError = this.props.error
     return (
       <StrictMode>
@@ -90,9 +91,9 @@ export class ModalLogin extends Component {
             </div>
             <h3>Login</h3>
             <div className="modal-register__form">
-              {/* {backEndError ? (
+              {backEndError ? (
                 <ul className="err-message">{backEndError}</ul>
-              ) : null} */}
+              ) : null}
               <div className="input-field">
                 <div className="form-group">
                   <input

@@ -21,7 +21,7 @@ const useAxios = url => {
 }
 
 const Quotes = () => {
-  const URL = 'https://quotes.stormconsultancy.co.uk/random.json'
+  const URL = `${process.env.REACT_APP_BACKEND_URL}/quote`
   let quote = ''
   let author = ''
   const result = useAxios(URL)

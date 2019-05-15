@@ -15,6 +15,7 @@ class DashBoard extends Component {
   componentDidMount() {
     console.log(this.props)
     let userId = localStorage.getItem('userId')
+    console.log(userId)
     if (userId !== null) {
       this.props.getAllUserCollections(userId)
     }
