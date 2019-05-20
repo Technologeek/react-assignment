@@ -27,11 +27,11 @@ export default class SearchBar extends React.PureComponent {
     this.setState({ isLoading: true })
     let pushData =
       this.props.getAllCollections &&
-      this.props.getAllCollections.map(element => {
-        console.log(element, element.url, element.method)
-        const found = source.some(el => el.title === element.name)
-        if (!found) source.push({ title: element.name, method: element.method })
-        console.log(source)
+      this.props.getAllCollections.body &&
+      this.props.getAllCollections.body.map(element => {
+        const found = source.some(el => el.title === element.collectionname)
+        if (!found)
+          source.push({ title: element.collectionname, method: element.method })
       })
   }
   handleSearchChange(e, { value: query }) {
@@ -46,8 +46,6 @@ export default class SearchBar extends React.PureComponent {
   }
   render() {
     const { isLoading, value, results } = this.state
-    console.log(this.props)
-
     return (
       <div className="padding">
         <Search

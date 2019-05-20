@@ -17,12 +17,19 @@ class ProfilePage extends Component {
     }
   }
   componentDidMount(match) {
-    let url = `${process.env.REACT_APP_JSON_BASE_URL}users/${this.props.userId}`
-    axios.get(url).then(response => {
+    let token = localStorage.getItem('token')
+    let userId = localStorage.getItem('userId')
+    let auth = {
+      headers: { Authorization: 'Bearer ' + token },
+    }
+    let url = `${process.env.REACT_APP_BACKEND_URL}/users/${userId}`
+    axios.get(url, auth).then(response => {
       if (response.data)
         this.setState({
-          userName: response.data && response.data.username,
-          userEmail: response.data && response.data.email,
+          userName:
+            response.data && response.data.body && response.data.body.username,
+          userEmail:
+            response.data && response.data.body && response.data.body.email,
         })
     })
   }
