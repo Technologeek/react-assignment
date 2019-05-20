@@ -15,10 +15,7 @@ class DashBoard extends Component {
   componentDidMount() {
     console.log(this.props)
     let userId = localStorage.getItem('userId')
-    console.log(userId)
-    if (userId !== null) {
-      this.props.getAllUserCollections(userId)
-    }
+    this.props.getAllUserCollections(userId)
   }
   render() {
     console.log(this.props.user)

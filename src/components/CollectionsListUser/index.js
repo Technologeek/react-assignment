@@ -23,6 +23,7 @@ export default class CollectionsList extends PureComponent {
     let getAllCollections = this.props && this.props.getAllCollections
     let getUrlDataForResponse = this.props && this.props.getUrlDataForResponse
     let userId = this.props && this.props.userId
+    console.log(this.props)
     return (
       <CollectionListWrapper>
         <Card className="cell_width">
@@ -47,7 +48,8 @@ export default class CollectionsList extends PureComponent {
           ) : (
             <Fragment>
               {this.props.collections &&
-                this.props.collections.map((collections, key) => {
+                this.props.collections.body &&
+                this.props.collections.body.map((collections, key) => {
                   console.log(collections)
                   return (
                     <UrlAccordin

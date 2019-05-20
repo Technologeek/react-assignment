@@ -68,7 +68,8 @@ export class ModalLogin extends Component {
     if (this.props.user) {
       if (
         Object.keys(this.props.user).length !== 0 &&
-        this.props.user.user_id
+        this.props.user.body &&
+        this.props.user.body.userId
       ) {
         history.push('/Dashboard')
         this.props.onClick()

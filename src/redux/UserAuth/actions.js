@@ -22,8 +22,14 @@ export function registerNewUser(userData) {
             type: REGISTER_NEW_USER,
             payload: response.data,
           })
-          localStorage.setItem('userId', response.data && response.data.userId)
-          localStorage.setItem('token', response.data && response.data.token)
+          localStorage.setItem(
+            'userId',
+            response.data && response.data.body.userId
+          )
+          localStorage.setItem(
+            'token',
+            response.data && response.data.body.token
+          )
         }
       })
       .catch(error => {
@@ -47,8 +53,11 @@ export function loginUser(userData) {
             payload: response.data,
           })
         }
-        localStorage.setItem('userId', response.data && response.data.user_id)
-        localStorage.setItem('token', response.data && response.data.token)
+        localStorage.setItem(
+          'userId',
+          response.data && response.data.body.userId
+        )
+        localStorage.setItem('token', response.data && response.data.body.token)
       })
       .catch(error => {
         dispatch(hideLoadingIcon())
