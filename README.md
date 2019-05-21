@@ -31,11 +31,11 @@ To give users a better front-end experience, I've taken into account the number 
 
 ## Installation requirements.
 
-This application is bootstrapped using [Create-React-App](https://github.com/facebook/create-react-app) uses [Json Server](https://github.com/typicode/json-server) for data persistance and [FireBase](https://firebase.google.com/) for authentication/session-management.
+This application is bootstrapped using [Create-React-App](https://github.com/facebook/create-react-app) uses [api-panda-backend]https://github.com/Technologeek/api-panda-backend) for data persistance and authentication/session-management.
 
-> Note : The project deployed live uses a back-end which is also deployed on AWS cloud. Meaning, the JSON-server is deployed on AWS instance which can be accessed both locally and on the live version. The EC2 Server URL is http://ec2-18-203-87-253.eu-west-1.compute.amazonaws.com:3000/users [Due to CORS & SSL browser policies, this had to be replaced.]
+> Note : The project deployed live uses a back-end which is also deployed on HEROKU cloud. Meaning, the backend-server is deployed on Heroku instance which can be accessed both locally and on the live version. The  Server URL is https://api-panda-backend-server.herokuapp.com/api/health
 
-The Live Project URL is : https://api-panda-75znvivjk.now.sh/ [Might Be Updated Later]
+The Live Project URL is : https://api-panda-hwaa94f1b.now.sh [Might Be Updated Later]
 
 To run the project locally,
 
@@ -53,13 +53,9 @@ To run the project locally,
 
 5. The environment variables file needs to be created manually (.env) and the data for the same will be sent to via slack. You can copy,paste that data and re-run the application to get the enviroment varibales working.
 
-6. JSON-Server will be needed to run the database. Install the JSON server by running `npm install -g json-server` . Note that the Front-end of the appplication runs in isolation with the backend. A sort of an isomorphic aproach. To install the back-end database,
 
-- Clone this repository `https://github.com/Technologeek/react-json-server.git`
-- Cd into react-json-server and run `npm install` (downloads any other dependencies required by the server)
-- Run `npm start` - This should start the JSON-Server serving the data-file user-collection.json. The default port should be 3000 but if JSON-Server runs on another port than you must change the port accordingly in your Front-end app's env file.
+7. By now you should have the API-Panda running.
 
-7. By now you should have your API-Panda app and Json-Server running on seperate ports which will make app ready to be used.
 8. The default login details for an existing user-account are
    - Email : test@testapipanda.com
    - Password : 12345678Aa
@@ -71,7 +67,6 @@ Application Architecture
 
 ![Component & Architecture Model](https://github.com/Technologeek/react-assignment/blob/master/Application%20Architecture.png)
 
-![Data Model FireBase & JSON](https://github.com/Technologeek/react-assignment/blob/master/Untitled%20Diagram.png)
 
 ## App Component Design.
 
@@ -181,6 +176,7 @@ The App is tested on Google-Chrome and the CSS is styled according to media-quer
 
 ## Independent learning.
 
+- 💡The Jwt token generated from the backend is stored on the client-side in form of a localstorage item which is destroyed once the user logs out. The localStorage consists of **token** and **userId** keys. They're retrived while sending them into a request. 
 - 💡 I've used **React.PureComponent** for effective optimised rendering for the CollectionListUser component. I could have used shouldComponentUpdate() but I don't really need to do a deep props comparision and PureComponent implements shouldComponentUpdate() with shallow props & state comparision which satisfies my requirement.
 - 💡 ApiDisplay was the most trickiest component to write because it receives form data from the state which is used to make a request and show Error/Response <div>'s accordingly but at the same time it should receive data directly on Url-Click from **UrlAccordin** component and show the appropriate responses. My ideology behind writing every component is **Single Responsibility Principle & High Reusability**. The way I made it work is using an action creator from props but still I think the code is kind of verbose and it could have been improved by introducing an intermediate component.
 - 💡 To enhance the developer experience, I've tried to decompose components as much as possible to avoid strong binding. ES6 features are utilized as much as possible.
