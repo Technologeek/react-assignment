@@ -1,4 +1,4 @@
-# Assignment 1 - ReactJS Application
+# Assignment 2 - API-Panda Front-end
 
 🔸 _Web-Application Name_ : API-Panda  
 🔸 _Author_ : Rahul Patil  
