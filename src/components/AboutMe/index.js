@@ -20,11 +20,7 @@ const AboutMe = () => {
           </Item.Content>
         </Item>
         <p>
-          Hi! I'm Rahul Patil, a passionate Front-End developer. I like writing
-          JavaScript appplications with asthetics. Currently I'm a masters
-          student pursuing Enterprise Software Systems at Waterford Institute Of
-          Technology and an Software Enginner intern at Errigal Inc, Waterford.
-          I believe in writing clean, testable and maintainbale code.
+         
         </p>
         <Label as="a" image>
           <img src={cat} />
