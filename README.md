@@ -120,7 +120,7 @@ The App is tested on Google-Chrome and the CSS is styled according to media-quer
   ![Profile](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025893/Api-panda/Screenshot_2019-03-19_at_19.54.11.png)
 
 - AboutMe
-  ![About](https://res.cloudinary.com/doefdz9w7/image/upload/v1553025910/Api-panda/Screenshot_2019-03-19_at_19.54.27.png)
+  ![About]()
 
 ## Libraries Used
 
