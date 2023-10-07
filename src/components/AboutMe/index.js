@@ -15,7 +15,6 @@ const AboutMe = () => {
           <Item.Content verticalAlign="middle">
             <Item.Header>
               <Icon name="like" />
-              Rahul Patil
             </Item.Header>
           </Item.Content>
         </Item>
