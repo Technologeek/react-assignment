@@ -1,8 +1,6 @@
 # Assignment 2 - API-Panda Front-end
 
 🔸 _Web-Application Name_ : API-Panda  
-🔸 _Author_ : Rahul Patil  
-🔸 _Student Reg No_ : 20083299
 
 ## Overview
 
